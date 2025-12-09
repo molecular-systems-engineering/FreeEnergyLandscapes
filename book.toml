@@ -1,0 +1,17 @@
+[book]
+title ="Free Energy Surfaces"
+[build]
+create-missing = false
+# Plugins #
+
+# https://github.com/lambdalisue/rs-mdbook-alerts
+# GitHub-style alerts
+[preprocessor.alerts]
+
+# Check:
+# * https://github.com/Roms1383/mdbook-codeblocks
+# * https://github.com/MR-Addict/mdbook-embedify
+# * https://github.com/boozook/mdbook-svgbob
+
+[preprocessor.katex]
+after = ["links"]
