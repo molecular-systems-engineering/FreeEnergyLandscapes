@@ -110,11 +110,7 @@ within \\(\Omega_i\\) (or \\(\Omega_i\\)), one can obtain the equilibrium
 probability to observe the system in state \\(i\\) (or \\(j\\)), or have access
 to the free energy difference between the two states:
 
-\\[\Delta{F}_{i\rightarrow\,j}=-
-kT\ln\left[{\frac{\int
-{\mathbf{1}_{\mathbf{r}\in{\Omega_j}}f(\mathbf{r})}d\mathbf{r}}{\int
-{\mathbf{1}_{\mathbf{r}\in{\Omega_i}}f(\mathbf{r})}d\mathbf{r}}}\right]
-\\]
+\\[\Delta{F}_{i\rightarrow\,j}=- kT\ln\left[{\frac{\int {\mathbf{1}_{\mathbf{r}\in{\Omega_j}}f(\mathbf{r})}d\mathbf{r}}{\int {\mathbf{1}_{\mathbf{r}\in{\Omega_i}}f(\mathbf{r})}d\mathbf{r}}}\right] \\]
 
 where \\(\mathbf{1}_{\mathbf{r}\in{i,j}}\\) is an indicator function that
 selects only microstates belonging to a given state, for example, state
