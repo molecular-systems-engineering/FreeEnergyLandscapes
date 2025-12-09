@@ -14,4 +14,4 @@ create-missing = false
 # * https://github.com/boozook/mdbook-svgbob
 
 [preprocessor.katex]
-after = ["links"]
+#after = ["links"]
