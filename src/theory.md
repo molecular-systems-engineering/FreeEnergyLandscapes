@@ -93,33 +93,37 @@ reference="sec:Computing"}.
 ::: marginnote
 The isothermal--isobaric partition function is related to the canonical
 partition function via [@tuckerman2023statistical]:
-\\(\Delta_{NPT}=\int_0^\infty dV\, e^{-\beta PV}\, Z_{NVT}\\) []{#note:NPT
+\\(\Delta_{NPT}=\int_{0}^\infty dV\, e^{-\beta PV}\, Z_{NVT}\\) []{#note:NPT
 label="note:NPT"}
 :::
 
 ### From Thermodynamic Potential to Free Energy Differences
 
 Now, let us consider two disconnected regions of the phase space,
-\\(\Omega_i\\) and \\(\Omega_j\\), representing two sets of microstates
+\\(\Omega_{i}\\) and \\(\Omega_{j}\\), representing two sets of microstates
 associated with two distinct states of the system, \\(i\\) and \\(j\\). Such
 ensembles of configurations could correspond to the reactants and
 products of a chemical reaction, two different phases of the same
 substance, the unfolded and folded configurations of a biopolymer,
 etc.). By integrating the normalised canonical phase space distribution
-within \\(\Omega_i\\) (or \\(\Omega_i\\)), one can obtain the equilibrium
+within \\(\Omega_{i}\\) (or \\(\Omega_{i}\\)), one can obtain the equilibrium
 probability to observe the system in state \\(i\\) (or \\(j\\)), or have access
 to the free energy difference between the two states:
 
-\\[\Delta{F}\_{i\rightarrow\,j}=- kT\ln\left[{\frac{\int {\mathbf{1}\_{\mathbf{r}\in{\Omega\_j}}f(\mathbf{r})}d\mathbf{r}}{\int {\mathbf{1}\_{\mathbf{r}\in{\Omega\_i}}f(\mathbf{r})}d\mathbf{r}}}\right] \\]
+\\[\Delta{F}_{i\rightarrow\,j}=-
+kT\ln\left[{\frac{\int
+{\mathbf{1}_{\mathbf{r}\in{\Omega_{j}}}f(\mathbf{r})}d\mathbf{r}}{\int
+{\mathbf{1}_{\mathbf{r}\in{\Omega_{i}}}f(\mathbf{r})}d\mathbf{r}}}\right]
+\label{eq:DF}\\]
 
 where \\(\mathbf{1}_{\mathbf{r}\in{i,j}}\\) is an indicator function that
 selects only microstates belonging to a given state, for example, state
 \\(i\\), and \\(\int
-{\mathbf{1}_{\mathbf{r}\in{\Omega_i}}f(\mathbf{r})}d\mathbf{r}=P_{i}\\),
+{\mathbf{1}_{\mathbf{r}\in{\Omega_{i}}}f(\mathbf{r})}d\mathbf{r}=P_{i}\\),
 is the equilibrium probability of said state \\(i\\).
 
 ![From microscopic configurations to the free energy surface. Each
-molecular configuration (\\(\mathbf{r}_i \in \mathbf{R}^{3N}\\), where \\(N\\)
+molecular configuration (\\(\mathbf{r}_{i} \in \mathbf{R}^{3N}\\), where \\(N\\)
 is the number of atoms) is mapped to a point in a reduced, low
 dimensional space of collective variables
 (\\(\xi(\mathbf{r}) \in \mathbf{R}^m\\)), with \\(m \ll 3N\\). In the following,
@@ -129,7 +133,7 @@ dimensionality are
 straightforward[@laio2002escaping; @kastner2011umbrella]. The marginal
 equilibrium probability \\(p(\xi)\\), which quantifies the relative
 likelihood of observing configurations consistent with a given value of
-\\(\xi=[\xi_1,\xi_2]\\). The corresponding free energy surface
+\\(\xi=[\xi_{1},\xi_{2}]\\). The corresponding free energy surface
 \\(F(\xi) = -kT \ln (\xi) + C\\) provides a readable map of thermodynamic
 stability and metastability in configuration space. Basins A and B
 correspond to metastable states separated by a free energy
@@ -173,7 +177,7 @@ reference="sec:CVs"}), renders the features of \\(F(\xi)\\) informative. For
 instance, for a good choice of \\(\xi\\), metastable states correspond to
 local minima in \\(F(\xi)\\). As a consequence, free energy differences
 between metastable states become tractable as the domain of integration
-(\\(\Omega_i\\) in Eq. [\[eq:DF\]](#eq:DF){reference-type="ref"
+(\\(\Omega_{i}\\) in Eq. [\[eq:DF\]](#eq:DF){reference-type="ref"
 reference="eq:DF"}) can be identified in reduced-dimensionality \\(\xi\\)
 (see Fig. [1](#fig:FES_idea){reference-type="ref"
 reference="fig:FES_idea"}).
@@ -206,7 +210,7 @@ value. Similarly, free energy barriers can reflect entropic bottlenecks
 where the accessible volume of phase space
 narrows.[@gimondi2018building; @polino2020collective; @kollias2020role; @leanza2023into; @serse2024unveiling]
 
-![(a) Two-dimensional model potential energy surface, \\(E_P(x,y)\\), and
+![(a) Two-dimensional model potential energy surface, \\(E_{P}(x,y)\\), and
 corresponding projection on the map variable (x) used to illustrate the
 decomposition of the free energy surface into energetic and entropic
 contributions, following Gimondi, Tribello, and Salvalaglio (2018). The
