@@ -26,7 +26,7 @@ jobs:
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v2
         with:
-          mdbook-version: '0.4.52'   # 'latest' beware 0.5.0 is incompatible with katex
+          mdbook-version: 'latest' #beware 0.5.0 is incompatible with katex
 
 #      - name: Install mdbook-katex
 #        run: cargo install mdbook-katex
