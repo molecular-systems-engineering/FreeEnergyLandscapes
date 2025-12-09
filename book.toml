@@ -3,7 +3,8 @@ title ="Free Energy Surfaces"
 [build]
 create-missing = false
 # Plugins #
-
+[output.html]
+mathjax-support = true
 # https://github.com/lambdalisue/rs-mdbook-alerts
 # GitHub-style alerts
 #[preprocessor.alerts]
@@ -13,5 +14,5 @@ create-missing = false
 # * https://github.com/MR-Addict/mdbook-embedify
 # * https://github.com/boozook/mdbook-svgbob
 
-[preprocessor.katex]
+#[preprocessor.katex]
 #after = ["links"]
