@@ -15,8 +15,7 @@ interpreting FESs, first by establishing the theoretical foundations,
 then by surveying practical methods for their calculation, and finally
 by showing how modern machine learning augments both representation and
 sampling of FESs. We begin in Section
-<a href="#sec:Theory" data-reference-type="ref"
-data-reference="sec:Theory">[sec:Theory]</a> by laying out the
+[sec:Theory](#sec:Theory) by laying out the
 statistical-mechanical basis of FESs linking partition functions,
 thermodynamic potentials, and ensemble probabilities, and how projecting
 high-dimensional configuration spaces onto suitable collective variables
@@ -25,8 +24,7 @@ focuses on the role of ergodicity, the definition and choice of CVs, and
 the theoretical foundations underlying key pieces of information
 gathered from FESs, such as barrier heights in the context of
 Generalized Transition State Theory, and the calculation of equilibrium
-constants. Section <a href="#sec:Computing" data-reference-type="ref"
-data-reference="sec:Computing">[sec:Computing]</a> turns to computation.
+constants. Section [sec:Computing](#sec:Computing) turns to computation.
 We outline how FESs are estimated in practice—unbiased vs biased
 sampling, reweighting, and free-energy estimators—covering umbrella
 sampling, thermodynamic integration, metadynamics, and its modern
@@ -34,8 +32,7 @@ variants. Throughout, we emphasise how biased design and estimator
 choice affect quantitative fidelity.
 
 Building on these foundations, Section
-<a href="#sec:MLCVs" data-reference-type="ref"
-data-reference="sec:MLCVs">[sec:MLCVs]</a> addresses the rapidly growing
+[sec:MLCVs](#sec:MLCVs) addresses the rapidly growing
 interface between machine learning and methods for the calculation of
 free-energy surfaces. We first survey machine-learned CVs (MLCVs)—from
 unsupervised embeddings to variational and graph-based, symmetry-aware
