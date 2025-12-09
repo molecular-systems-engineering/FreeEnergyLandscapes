@@ -46,3 +46,5 @@ where learned surrogates accelerate discovery of reactive trajectories
 while preserving thermodynamic consistency. Together, these advances
 demonstrate how learning and sampling can be integrated in closed loops
 that enhance the representation, exploration, and inference of FESs.
+
+# References {#bibliography .unnumbered}
