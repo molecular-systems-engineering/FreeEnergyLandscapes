@@ -24,7 +24,7 @@ thermodynamic concepts familiar to an engineering audience.
 
 The partition function in the canonical ensemble for a system of \\(N\\)
 identical particles is written as:
-\\[Z_{NVT} = \frac{1}{N!\,h^{3N}}\int d\Gamma e^{-\beta H(\Gamma)}.
+\\[Z\_{NVT} = \frac{1}{N!\,h^{3N}}\int d\Gamma e^{-\beta H(\Gamma)}.
 \label{eq:partitionNVT}\\] The normalisation factor \\({N!\,h^{3N}}\\)
 includes two inherently quantum-mechanical terms: the factorial of the
 number of particles \\(N!\\) and the \\(N\\)-th power of Planck's constant \\(h\\).
@@ -40,9 +40,9 @@ If the Hamiltonian can be written as the sum of independent potential
 and kinetic terms, \\(H(\Gamma) = U(\mathbf{r}) +K(\mathbf{p})\\), momenta
 can be integrated out and the partition function can be expressed in
 terms of the configurational integral (also called configurational
-partition function) \\(Q_{NVT}\\), as \\[Z_{NVT}
-=\frac{1}{N!\,\Lambda^{3N}}\,Q_{NVT},\\] with
-\\[Q_{NVT} = \int d\mathbf{r} e^{-\beta U(\mathbf{r})}\\] and
+partition function) \\(Q\_{NVT}\\), as \\[Z\_{NVT}
+=\frac{1}{N!\,\Lambda^{3N}}\,Q\_{NVT},\\] with
+\\[Q\_{NVT} = \int d\mathbf{r} e^{-\beta U(\mathbf{r})}\\] and
 \\(\Lambda = h/\sqrt{2\pi m kT}\\) is the thermal wavelength for particles
 of mass \\(m\\).
 
@@ -63,67 +63,67 @@ Here, we follow the latter convention.
 
 The configuration (marginal) probability density function is in this
 case [@tuckerman2023statistical]:
-\\[f(\mathbf{r}) = \frac{e^{-\beta U(\mathbf{r})}}{Q_{NVT}} = \frac{e^{-\beta U(\mathbf{r})}}{\int d\mathbf{r} e^{-\beta U(\mathbf{r})}}\\]
+\\[f(\mathbf{r}) = \frac{e^{-\beta U(\mathbf{r})}}{Q\_{NVT}} = \frac{e^{-\beta U(\mathbf{r})}}{\int d\mathbf{r} e^{-\beta U(\mathbf{r})}}\\]
 
 ### From Partition Functions to Thermodynamic Potentials
 
 The partition function \\(Z\\) is a central quantity because it encodes all
 the thermodynamic information of the system in this ensemble. In
 particular, the thermodynamic potential for the canonical ensemble, or
-Helmholtz free energy, \\(A\\), can be written as: \\[A = -kT \ln Z_{NVT},\\]
+Helmholtz free energy, \\(A\\), can be written as: \\[A = -kT \ln Z\_{NVT},\\]
 or, in terms of the configuration integral,
-\\[A = -kT \ln Q_{NVT}  + kT\ln\left( N!\Lambda^{3N}\right), 
+\\[A = -kT \ln Q\_{NVT}  + kT\ln\left( N!\Lambda^{3N}\right), 
 \label{eq:FE}\\] where the first term on the right-hand side is the
 configurational free energy and the second one the translational free
 energy. Other thermodynamic quantities (that is, quantities that depend
 on the macroscopic control parameters \\(N,V,T\\) only) can then be computed
-as derivatives of \\(A_{NVT}\\). Other statistical ensembles can be derived,
-for instance---but not necessarily---from the canonical ensemble through
-a Legendre transformation with respect to one control variable. This
-operation yields a new distribution function that corresponds to the
-Laplace transform of the original one. In what follows, we use the
-symbol \\(F\\) to refer to the free energy or thermodynamic potential
-without connection to an ensemble in particular. The specific meaning of
-\\(F\\) ---whether Helmholtz or Gibbs free energy--- depends on the
-statistical ensemble used to generate the molecular samples used to
-compute free energy surfaces as discussed in Section
+as derivatives of \\(A\_{NVT}\\). Other statistical ensembles can be
+derived, for instance---but not necessarily---from the canonical
+ensemble through a Legendre transformation with respect to one control
+variable. This operation yields a new distribution function that
+corresponds to the Laplace transform of the original one. In what
+follows, we use the symbol \\(F\\) to refer to the free energy or
+thermodynamic potential without connection to an ensemble in particular.
+The specific meaning of \\(F\\) ---whether Helmholtz or Gibbs free energy---
+depends on the statistical ensemble used to generate the molecular
+samples used to compute free energy surfaces as discussed in Section
 [\[sec:Computing\]](#sec:Computing){reference-type="ref"
 reference="sec:Computing"}.
 
 ::: marginnote
 The isothermal--isobaric partition function is related to the canonical
 partition function via [@tuckerman2023statistical]:
-\\(\Delta_{NPT}=\int_{0}^\infty dV\, e^{-\beta PV}\, Z_{NVT}\\) []{#note:NPT
-label="note:NPT"}
+\\(\Delta\_{NPT}=\int\_0^\infty dV\, e^{-\beta PV}\, Z\_{NVT}\\)
+[]{#note:NPT label="note:NPT"}
 :::
 
 ### From Thermodynamic Potential to Free Energy Differences
 
 Now, let us consider two disconnected regions of the phase space,
-\\(\Omega_{i}\\) and \\(\Omega_{j}\\), representing two sets of microstates
+\\(\Omega\_i\\) and \\(\Omega\_j\\), representing two sets of microstates
 associated with two distinct states of the system, \\(i\\) and \\(j\\). Such
 ensembles of configurations could correspond to the reactants and
 products of a chemical reaction, two different phases of the same
 substance, the unfolded and folded configurations of a biopolymer,
 etc.). By integrating the normalised canonical phase space distribution
-within \\(\Omega_{i}\\) (or \\(\Omega_{i}\\)), one can obtain the equilibrium
+within \\(\Omega\_i\\) (or \\(\Omega\_i\\)), one can obtain the equilibrium
 probability to observe the system in state \\(i\\) (or \\(j\\)), or have access
 to the free energy difference between the two states:
 
-\\[\Delta{F}_{i\rightarrow\,j}=-
+\\[\Delta{F}\_{i\rightarrow\,j}=-
 kT\ln\left[{\frac{\int
-{\mathbf{1}_{\mathbf{r}\in{\Omega_{j}}}f(\mathbf{r})}d\mathbf{r}}{\int
-{\mathbf{1}_{\mathbf{r}\in{\Omega_{i}}}f(\mathbf{r})}d\mathbf{r}}}\right]
+{\mathbf{1}\_{\mathbf{r}\in{\Omega\_j}}f(\mathbf{r})}d\mathbf{r}}{\int
+{\mathbf{1}\_{\mathbf{r}\in{\Omega\_i}}f(\mathbf{r})}d\mathbf{r}}}\right]
 \label{eq:DF}\\]
 
-where \\(\mathbf{1}_{\mathbf{r}\in{i,j}}\\) is an indicator function that
+where \\(\mathbf{1}\_{\mathbf{r}\in{i,j}}\\) is an indicator function that
 selects only microstates belonging to a given state, for example, state
 \\(i\\), and \\(\int
-{\mathbf{1}_{\mathbf{r}\in{\Omega_{i}}}f(\mathbf{r})}d\mathbf{r}=P_{i}\\),
+{\mathbf{1}\_{\mathbf{r}\in{\Omega\_i}}f(\mathbf{r})}d\mathbf{r}=P\_{i}\\),
 is the equilibrium probability of said state \\(i\\).
 
 ![From microscopic configurations to the free energy surface. Each
-molecular configuration (\\(\mathbf{r}_{i} \in \mathbf{R}^{3N}\\), where \\(N\\)
+molecular configuration (\\(\mathbf{r}\_i \in \mathbf{R}^{3N}\\), where \\(N\\)
 is the number of atoms) is mapped to a point in a reduced, low
 dimensional space of collective variables
 (\\(\xi(\mathbf{r}) \in \mathbf{R}^m\\)), with \\(m \ll 3N\\). In the following,
@@ -133,7 +133,7 @@ dimensionality are
 straightforward[@laio2002escaping; @kastner2011umbrella]. The marginal
 equilibrium probability \\(p(\xi)\\), which quantifies the relative
 likelihood of observing configurations consistent with a given value of
-\\(\xi=[\xi_{1},\xi_{2}]\\). The corresponding free energy surface
+\\(\xi=[\xi\_1,\xi\_2]\\). The corresponding free energy surface
 \\(F(\xi) = -kT \ln (\xi) + C\\) provides a readable map of thermodynamic
 stability and metastability in configuration space. Basins A and B
 correspond to metastable states separated by a free energy
@@ -142,15 +142,15 @@ width="1.2\\linewidth"}
 
 ## Free Energy Surfaces: readable maps of the thermodynamic potential
 
-The evaluation of the equilibrium probabilities \\(P_{i,j}\\) requires
+The evaluation of the equilibrium probabilities \\(P\_{i,j}\\) requires
 defining the indicator function \\(\int
-{\mathbf{1}_{\mathbf{r}\in{i}}f(\mathbf{r})}d\mathbf{r}\\), which
-pinpoints configurations belonging to \\(\Omega_{i,j}\\). Given the inherent
-high dimensionality of \\(\mathbf{r}\\), this is far from being a trivial
-task, and can be achieved by introducing a suitable low-dimensional
-function \\(\xi(\mathbf{r})\\) that maps microstates (specific realizations
-of the coordinates vector \\(\mathbf{r}\\)) belonging to the same macrostate
-close to one another.
+{\mathbf{1}\_{\mathbf{r}\in{i}}f(\mathbf{r})}d\mathbf{r}\\), which
+pinpoints configurations belonging to \\(\Omega\_{i,j}\\). Given the
+inherent high dimensionality of \\(\mathbf{r}\\), this is far from being a
+trivial task, and can be achieved by introducing a suitable
+low-dimensional function \\(\xi(\mathbf{r})\\) that maps microstates
+(specific realizations of the coordinates vector \\(\mathbf{r}\\)) belonging
+to the same macrostate close to one another.
 
 The introduction of \\(\xi(\mathbf{r})\\) allows to define the marginal
 equilibrium probability \\(p(\xi)\\) as
@@ -177,7 +177,7 @@ reference="sec:CVs"}), renders the features of \\(F(\xi)\\) informative. For
 instance, for a good choice of \\(\xi\\), metastable states correspond to
 local minima in \\(F(\xi)\\). As a consequence, free energy differences
 between metastable states become tractable as the domain of integration
-(\\(\Omega_{i}\\) in Eq. [\[eq:DF\]](#eq:DF){reference-type="ref"
+(\\(\Omega\_i\\) in Eq. [\[eq:DF\]](#eq:DF){reference-type="ref"
 reference="eq:DF"}) can be identified in reduced-dimensionality \\(\xi\\)
 (see Fig. [1](#fig:FES_idea){reference-type="ref"
 reference="fig:FES_idea"}).
@@ -210,7 +210,7 @@ value. Similarly, free energy barriers can reflect entropic bottlenecks
 where the accessible volume of phase space
 narrows.[@gimondi2018building; @polino2020collective; @kollias2020role; @leanza2023into; @serse2024unveiling]
 
-![(a) Two-dimensional model potential energy surface, \\(E_{P}(x,y)\\), and
+![(a) Two-dimensional model potential energy surface, \\(E\_P(x,y)\\), and
 corresponding projection on the map variable (x) used to illustrate the
 decomposition of the free energy surface into energetic and entropic
 contributions, following Gimondi, Tribello, and Salvalaglio (2018). The
@@ -240,7 +240,7 @@ the thermodynamic stability of molecular configurations mapped onto
 contributions: \\(F(\xi) = U(\xi) - T S(\xi).\\) The internal energy
 contribution is obtained as a conditional ensemble average over all
 microstates compatible with the value of \\(\xi\\):
-\\[U(\xi) = \langle U(\mathbf{r}) \rangle_{\xi} =
+\\[U(\xi) = \langle U(\mathbf{r}) \rangle\_{\xi} =
  \frac{\int d\mathbf{r} U(\mathbf{r}) e^{-\beta U(\mathbf{r})} \delta(\xi(\mathbf{r})-\xi)}{\int d\mathbf{r} e^{-\beta U(\mathbf{r})} \delta(\xi(\mathbf{r})-\xi)}\\]
 The entropy then follows from: \\(S(\xi) = T^{-1}(U(\xi) - F(\xi))\\).
 []{#box:entropy label="box:entropy"}

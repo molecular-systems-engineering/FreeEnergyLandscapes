@@ -1,25 +1,20 @@
 -- math_fix.lua
--- Normalize TeX subscripts inside math so Markdown doesn't turn `_x` into italics.
---
--- Examples:
---   x_i         -> x_{i}
---   \Omega_j    -> \Omega_{j}
---   already x_{i} stays as x_{i}
---   \_x (literal underscore) is NOT changed.
-
-local function normalize_subscripts(tex)
-  -- 1) Handle underscore at start: _x -> _{x}
-  tex = tex:gsub("^_(%w)", "_{%1}")
-
-  -- 2) Handle underscores preceded by a non-backslash char:
-  --    a_x -> a_{x}, \_x is untouched (because of the [^\\] guard)
-  tex = tex:gsub("([^\\])_(%w)", "%1_{%2}")
-
-  return tex
-end
+-- Inside math, escape all underscores so Markdown doesn't treat them as emphasis.
+-- Example:
+--   x_i       -> x\_i
+--   x_{i}     -> x\_{i}
+--   \_i       -> \_i (already escaped, left alone)
 
 function Math(el)
-  el.text = normalize_subscripts(el.text)
+  local t = el.text
+
+  -- Escape '_' that are not already escaped
+  -- 1) Leading '_'
+  t = t:gsub("^_", "\\_")
+  -- 2) '_' preceded by a non-backslash
+  t = t:gsub("([^\\])_", "%1\\_")
+
+  el.text = t
   return el
 end
 
