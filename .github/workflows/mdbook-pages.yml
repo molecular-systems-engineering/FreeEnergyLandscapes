@@ -3,7 +3,7 @@ name: Deploy mdBook to GitHub Pages
 on:
   push:
     branches:
-      - main        # change if your default branch is different
+      - publish # change if your default branch is different
   workflow_dispatch:
 
 permissions:
