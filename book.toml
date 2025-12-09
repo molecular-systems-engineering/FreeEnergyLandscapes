@@ -13,5 +13,5 @@ create-missing = false
 # * https://github.com/MR-Addict/mdbook-embedify
 # * https://github.com/boozook/mdbook-svgbob
 
-#[preprocessor.katex]
-#after = ["links"]
+[preprocessor.katex]
+after = ["links"]
