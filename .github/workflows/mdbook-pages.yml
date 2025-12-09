@@ -3,13 +3,13 @@ name: Deploy mdBook to GitHub Pages
 on:
   push:
     branches:
-      - publish   # or your default branch
+      - main        # change if your default branch is different
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write      # needed to publish to GitHub Pages
-  id-token: write   # needed by actions/deploy-pages
+  pages: write
+  id-token: write
 
 concurrency:
   group: "pages"
@@ -23,20 +23,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install mdBook
-        run: |
-          curl -L https://github.com/rust-lang/mdBook/releases/latest/download/mdbook-v0.4.43-x86_64-unknown-linux-gnu.tar.gz \
-            | tar xz
-          sudo mv mdbook /usr/local/bin/
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v2
+        with:
+          mdbook-version: 'latest'
 
       - name: Build mdBook
-        run: mdbook build
-        # by default, this reads ./book.toml and outputs to ./book/
+        run: |
+          # If book.toml is not in repo root, cd there first.
+          mdbook build
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./book
+          path: ./book   # default mdBook output directory
 
   deploy:
     needs: build
@@ -49,3 +49,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
