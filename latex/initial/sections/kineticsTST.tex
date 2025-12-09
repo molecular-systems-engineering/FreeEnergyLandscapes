@@ -1,0 +1,42 @@
+\subsection{Free Energy Barriers and Generalised Transition State Theory\label{sec:kinetics}}
+
+Once a suitable RC $\xi(\mathbf{r})$ is defined, the free energy surface $F(\xi) = -kT \ln p(\xi)$ quantifies the reversible work required to bring the system to a configuration of progress $\xi$. Minima of $F(\xi)$ identify metastable states (reactants, products), while the maximum along the minimum free-energy path defines the transition state at $\xi^\ddagger$. The corresponding free energy difference
+\begin{equation}
+\Delta F_\xi^{\ddagger} = F(\xi^\ddagger) - F(\xi_\mathrm{R})
+\end{equation}
+represents the free energy barrier that the system must overcome to transform from reactants to products, thus opening the door to a kinetic interpretation of the free energy surface. 
+
+The \emph{generalised transition-state theory} (TST) provides a direct link between this thermodynamic picture and the kinetics of rare events. In its most general form, TST expresses the rate constant as the thermal average of the flux through a dividing surface in configuration space:
+\begin{equation}
+k_{\mathrm{TST}} =
+\underbrace{\frac{1}{2}\langle|\dot{\xi}|\rangle_{\xi^\ddagger}}_{\text{kinetic prefactor}}
+\,
+\underbrace{\exp[-\beta{\Delta F_\xi^{\ddagger}}]}_{\text{Boltzmann factor}} 
+\label{eq:TSTPeters}
+\end{equation}
+
+This compact expression highlights two essential components: a kinetic prefactor, representing the average rate at which trajectories cross the dividing surface, and a Boltzmann factor giving the equilibrium probability of reaching the transition state. This formulation is entirely general and applies to any free-energy landscape computed from molecular simulation. The prefactor accounts for the rate at which configurations cross the transition-state surface, while the exponential term represents the equilibrium probability of reaching that surface from the reactant basin.
+
+This formulation follows naturally from the flux–over–population formalism described in Hänggi, Talkner, and Borkovec’s seminal review\cite{hanggi_reaction-rate_1990}. There, the rate of barrier crossing is expressed as the ratio of a stationary reactive flux $J$ to the reactant population $n_\mathrm{R}$:
+\begin{equation}
+k = \frac{J}{n_\mathrm{R}} = \frac{\int \dot{\xi}\, \delta(\xi-\xi^\ddagger)\, \Theta(\dot{\xi})\, e^{-\beta H(\mathbf{r},\mathbf{p})} \, d\mathbf{r}\,d\mathbf{p}}{\int_{\xi < \xi^\ddagger} e^{-\beta H(\mathbf{r}\,\mathbf{p})} \, d\mathbf{r}\,d\mathbf{p}} 
+\label{eq:TSTHanggi}
+\end{equation}
+where $\delta(\xi - \xi^\ddagger)$ selects configurations located precisely on the dividing surface ($\xi = \xi^\ddagger$), ensuring that only configurations at the transition state contribute to the flux.
+$\Theta(\dot{\xi})$ is a Heaviside step function, which filters out backward trajectories ($\dot{\xi}<0$) and retains only forward crossings ($\dot{\xi}>0$), i.e., transitions that move from reactants toward products.
+Finally, $e^{-\beta H(\mathbf{r},\mathbf{p})}$ is the Boltzmann factor weighting each phase-space point by its equilibrium probability.
+
+Assuming that all degrees of freedom orthogonal to $\xi$ are equilibrated on both sides of the dividing surface, Eq. \ref{eq:TSTHanggi} simplifies to Eq. \ref{eq:TSTPeters}, thus connecting the exponential Boltzmann term rate constant directly to the free-energy profile $F(\xi)$.
+
+The appeal of this generalised TST framework lies in its compatibility with free-energy surfaces obtained from molecular simulations. Any method capable of computing $F(\xi)$ (see Sec. \ref{sec:Computing}) provides the necessary thermodynamic ingredient to estimate kinetic rates. The exponential term in Eq. \ref{eq:TSTPeters} is directly obtained from the simulation, while the prefactor can be evaluated from the mean thermal velocity along $\xi$. 
+Equation \ref{eq:TSTPeters} can be further simplified when the reaction coordinate properly identifies the dynamic bottleneck. In that case, local equilibrium at the transition state allows one to replace the prefactor with the universal Eyring expression,
+\begin{equation}
+k_{\mathrm{TST}} = \frac{kT}{h}\, e^{-\beta \Delta F_\xi^{\ddagger}}\,
+\label{eq:kTST}
+\end{equation}
+which emerges naturally from the separation of time scales between fast intrabasin equilibration and slow barrier crossing. This classical form implicitly assumes harmonic free-energy wells and a single dominant saddle point—conditions that may break down in condensed-phase reactions, diffusion-limited processes, or solvent-controlled kinetics. Deviations from this ideal behaviour can be captured by introducing a \emph{transmission coefficient} $\kappa$, accounting for dynamic recrossings and frictional damping: $k = \kappa\,k_{\mathrm{TST}},\quad 0 < \kappa \leq 1$, so that the rate from transition state theory result is always larger than the real rate\cite{hanggi_reaction-rate_1990}.
+
+
+
+
+

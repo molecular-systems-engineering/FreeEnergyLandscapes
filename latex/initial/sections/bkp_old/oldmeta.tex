@@ -1,0 +1,23 @@
+
+
+A powerful class of enhanced sampling approaches works by applying an explicitly time- or history-dependent biasing potential along some collective variable(s) ($\boldsymbol{\xi}(r)$), with the dual aim of accelerating rare transitions and recovering the unbiased distribution ($p(\boldsymbol{\xi})$) by proper reweighting. 
+
+
+
+such that barriers in the effective free energy ($F(\boldsymbol{\xi})$) are reduced and transitions are promoted. The fundamental requirement is that one can reweight from the biased trajectory back to the canonical ensemble to recover
+\begin{equation}
+p_0(\boldsymbol{\xi}) \propto p_V(\boldsymbol{\xi}) e^{+\beta V(\boldsymbol{\xi})}
+\end{equation}
+where \(p_V\) is the marginal histogram of $\boldsymbol{\xi}$ under the bias.
+Umbrella sampling is arguably the prototypical method based on bias. In a family of windowed simulations, one imposes a static harmonic restraint \(V_i(\boldsymbol{\xi}) = \frac{1}{2} k_i (\boldsymbol{\xi} - \boldsymbol{\xi}_i^0)^2\). Each window samples the local region around $\boldsymbol{\xi}_i^0$, producing a biased histogram $p_{i,V}(\boldsymbol{\xi})$. To combine windows, one uses the standard Zwanzig free-energy perturbation style reweighting (see Sec.\ref{sec:FEP}) 
+\begin{equation}
+\Delta F_{i\to j} = -k_{\rm B} T \ln \Big\langle e^{-\beta [V_j(\boldsymbol{\xi}) - V_i(\boldsymbol{\xi})]} \Big\rangle_{i,V}
+\end{equation}
+and/or one uses WHAM / MBAR approaches to merge all the windows self-consistently into a global unbiased ($p_0(\boldsymbol{\xi})$). This reconstructs ($F(\boldsymbol{\xi})$) over a broad range of ($\boldsymbol{\xi}$). 
+Umbrella sampling is robust, conceptually simple, and effective when one can define overlapping windows and suitable force constants; however, it is inherently non-adaptive and often inefficient in high-barrier or multi-dimensional landscapes.
+Metadynamics builds on the same bias-potential philosophy but evolves ($V(\boldsymbol{\xi})$) on the fly. In its original flavor, small Gaussian increments ($\delta V = w \exp[-(\boldsymbol{\xi} - \boldsymbol{\xi}_t)^2/2\sigma^2]$) are deposited along the trajectory, gradually “filling” the visited free energy wells (the “computational sand” metaphor). in the long-time limit the bias accumulates to approximate (-$F(\boldsymbol{\xi})$), thereby flattening the effective free energy surface and allowing diffusive motion in ($\boldsymbol{\xi}$)-space. In well-tempered metadynamics (WTmetaD), the height of deposited Gaussians is tempered over time so that ($V(\boldsymbol{\xi})$) converges smoothly; the equilibrium result obeys ($V(\boldsymbol{\xi}) \approx - \frac{1}{\gamma - 1} F(\boldsymbol{\xi})$), where ($\gamma$) is the bias factor. %The time-dependent bias must be reweighted (e.g. via the Tiwary–Parrinello estimator or other methods) to recover the unbiased free energy.
+While metadynamics is powerful, it can suffer from slow convergence and poor performance when the CVs are suboptimal. To address this, the On-the-fly Probability Enhanced Sampling (OPES) method was developed, combining elements of metadynamics and variationally enhanced sampling (VES) into a more controlled and rapidly converging biasing scheme. OPES maintains an estimate ($\hat p(\boldsymbol{\xi})$) of the target marginal probability distribution and updates ($V(\boldsymbol{\xi})$) such that
+\begin{equation}
+p_V(\boldsymbol{\xi}) \approx \hat p(\boldsymbol{\xi})
+\end{equation}
+i.e. the bias aims to flatten the sampled ($\boldsymbol{\xi}$)-distribution to the chosen target. OPES can be seen as a generalization of metadynamics in which the bias is computed from an on-the-fly reweighted probability rather than Gaussians alone. OPES typically converges faster (i.e., with less “overshooting”) and exhibits an explicit reweighting scheme that is stable even in multiple dimensions.

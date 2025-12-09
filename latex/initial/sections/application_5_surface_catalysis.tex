@@ -1,0 +1,16 @@
+\begin{textbox}[t]
+\subsubsection{Free-energy landscape of CO reduction on copper\label{sec:case-study-reduction}}
+An excellent example of the use of metadynamics to discover reaction landscapes is the work by  Cheng, Xiao, and Goddard III\cite{cheng2017full} on the mechanism of CO reduction on copper. 
+Copper remains the only elemental catalyst capable of reducing CO$_2$ into hydrocarbons at significant rates, but its product distribution and mechanistic pathways have long been debated. Using ab initio molecular dynamics with explicit water layers, combined with metadynamics and refined using the Blue Moon ensemble, the authors computed atomistic free-energy barriers and pathways. The analysis revealed that at moderate potentials (U > –0.6 V vs RHE, pH 7), ethylene is the dominant product, formed via CO–CO coupling in an Eley–Rideal pathway with water as the proton source (\(\Delta G^\ddag = 0.69\) eV). At more negative potentials, hydrogen competes for surface sites, suppressing C–C coupling and enabling methane formation, with \(^*\)CHO identified as the key intermediate.
+
+The impact of this study is twofold. First, it demonstrated how explicit solvation and constant-potential modeling resolve longstanding discrepancies in previous DFT work, where implicit solvation gave inconsistent barriers. Second, by quantitatively reproducing the observed potential- and pH-dependent product distribution, it suggested a mechanism for for tuning selectivity in electrochemical CO$_2$ utilization, influencing subsequent efforts to design Cu-based alloys.
+
+%\begin{figure}
+{\centering  
+\includegraphics[width=\linewidth]{images/goddard.pdf}
+}
+    %\caption{
+    \textit{
+    Free-energy landscape for ethylene formation on Cu(100). (a) snapshots from ab-initio simulations with explicit solvent revealed (b) that the Eley–Rideal mechanism (black) has consistently lower barriers than Langmuir–Hinshelwood (blue), establishing CO dimerization as the rate-determining step.}
+    %\label{fig:goddard} \end{figure}
+\end{textbox}
