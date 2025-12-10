@@ -1,0 +1,6 @@
+# _toc.yml 
+format: jb-book
+root: src/introduction
+
+chapters:
+  - file: src/theory.md
