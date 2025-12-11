@@ -1,6 +1,3 @@
-::: marginnote
-:::
-
 ## Thermodynamic Potentials and Partition Functions
 
 In the canonical ensemble, which describes a system at constant number
@@ -14,6 +11,23 @@ energy of the microstate, expressed by the Hamiltonian $H$, in units of
 the thermal energy $kT = 1/\beta$, $k$ being the Boltzmann constant and
 $T$ the absolute
 temperature.[@chandler1978statistical; @frenkel_understanding_2023; @tuckerman2023statistical]
+
+:::{aside}
+**Phase Space Vector** Indicated with $\Gamma$, it is, for a system
+without constraints, a 6$N$-tuple that encompasses the positions
+$\mathbf{r}=(\mathbf{r}_1,\ldots\mathbf{r}_N)$ and momenta
+$\mathbf{p}=(\mathbf{p}_1,\ldots\mathbf{p}_N)$ of all $N$ particles in a
+system. Here, we represent this as: $\Gamma = (\mathbf{r},\mathbf{p})$.\
+**Microstate** A specific realization of the phase space vector $\Gamma$
+represents a single point in the 6N-dimensional phase space, defining
+the complete microscopic state of a classical system at a given instant
+in time.\
+**Hamiltonian** Indicated with $H(\Gamma)$, it is a fundamental function
+in classical mechanics that describes the total energy of a system as a
+function of its generalized coordinates and conjugate momenta.
+[@tuckerman2023statistical]
+
+:::
 
 The normalization constant of the phase-space density
 $f(\mathbf{r}, \mathbf{p})$ is the *partition function* - $Z$ - which
@@ -46,7 +60,8 @@ $$Q_{NVT} = \int d\mathbf{r} e^{-\beta U(\mathbf{r})}$$ and
 $\Lambda = h/\sqrt{2\pi m kT}$ is the thermal wavelength for particles
 of mass $m$.
 
-:::{.textbox}
+:::{important}
+:icon: false
 ### Z or Q?
 
 There is often confusion about which symbol refers to the full partition
@@ -88,14 +103,14 @@ without connection to an ensemble in particular. The specific meaning of
 $F$ ---whether Helmholtz or Gibbs free energy--- depends on the
 statistical ensemble used to generate the molecular samples used to
 compute free energy surfaces as discussed in Section
-[\[sec:Computing\]](#sec:Computing){reference-type="ref"
-reference="sec:Computing"}.
+[sec:Computing](#sec:Computing).
 
-::: marginnote
-The isothermal--isobaric partition function is related to the canonical
-partition function via [@tuckerman2023statistical]:
-$\Delta_{NPT}=\int_0^\infty dV  e^{-\beta PV}  Z_{NVT}$ []{#note:NPT
-label="note:NPT"}
+:::{aside}
+**Isothermal-Isobaric Ensemble** The isothermal--isobaric partition
+function is related to the canonical partition function via
+[@tuckerman2023statistical]:
+$\Delta_{NPT}=\int_0^\infty dV  e^{-\beta PV}  Z_{NVT}\label{note:NPT}$
+
 :::
 
 ### From Thermodynamic Potential to Free Energy Differences
@@ -151,9 +166,8 @@ $\xi(\mathbf{r})$. In this context, $p(\xi)$ can be interpreted as the
 partition function associated with all the microstates mapped in
 $p(\xi)$.
 
-In analogy with Eq.[\[eq:FE\]](#eq:FE){reference-type="ref"
-reference="eq:FE"} we can therefore define a free energy for every $\xi$
-as: $$F(\xi)=-kT\ln{p(\xi)}+C
+In analogy with Eq.[eq:FE](#eq:FE) we can therefore define a free energy
+for every $\xi$ as: $$F(\xi)=-kT\ln{p(\xi)}+C
 \label{eq:FES}$$ where $F(\xi)$ is the FES, and $C$ is an arbitrary
 constant, indicating that $F(\xi)$ is a measure of *relative*
 thermodynamic stability between ensembles of states that map to
@@ -161,15 +175,12 @@ different values of $\xi$.
 
 Mapping configurations onto a physically meaningful $\xi$ such that,
 i.e., it captures slow transitions in the configurational ensemble (see
-Section [\[sec:CVs\]](#sec:CVs){reference-type="ref"
-reference="sec:CVs"}), renders the features of $F(\xi)$ informative. For
-instance, for a good choice of $\xi$, metastable states correspond to
-local minima in $F(\xi)$. As a consequence, free energy differences
-between metastable states become tractable as the domain of integration
-($\Omega_i$ in Eq. [\[eq:DF\]](#eq:DF){reference-type="ref"
-reference="eq:DF"}) can be identified in reduced-dimensionality $\xi$
-(see Fig. [1](#fig:FES_idea){reference-type="ref"
-reference="fig:FES_idea"}).
+Section [sec:CVs](#sec:CVs)), renders the features of $F(\xi)$
+informative. For instance, for a good choice of $\xi$, metastable states
+correspond to local minima in $F(\xi)$. As a consequence, free energy
+differences between metastable states become tractable as the domain of
+integration ($\Omega_i$ in Eq. [eq:DF](#eq:DF)) can be identified in
+reduced-dimensionality $\xi$ (see Fig. [fig:FES_idea](#fig:FES_idea)).
 
 A subtle but important point is that free energy surfaces are
 low-dimensional representations of the configurational space of a given
@@ -177,26 +188,25 @@ molecular system. Each point in $\xi$ collects an ensemble of
 configurations that may be energetically distinct but indistinguishable
 (or degenerate) at the level of the chosen variable. This degeneracy
 directly contributes to the configurational entropy surface $S(\xi)$
-(see box [\[box:entropy\]](#box:entropy){reference-type="ref"
-reference="box:entropy"}).[@gimondi2018building; @dietschreit2023entropy]
+(see box
+[box:entropy](#box:entropy)).[@gimondi2018building; @dietschreit2023entropy]
 If a given $\xi$ value corresponds to many structurally diverse
 microstates - thus displaying a large degeneracy - its associated
 configurational entropy will be higher. Conversely, if $\xi$ selects a
 narrowly defined set of configurations, the entropic contribution will
 be smaller, and $F(\xi)$ will more closely follow $U(\xi)$. This effect
 is well illustrated in the simple 2D model systems reported in Fig.
-[2](#fig:entropy){reference-type="ref" reference="fig:entropy"}a. Two
-basins with identical potential energy can display different free
-energies when projected onto a single CV if one basin corresponds to a
-broader configurational ensemble. In Fig.
-[2](#fig:entropy){reference-type="ref" reference="fig:entropy"}b, the
-difference in free energy between metastable states arises entirely from
-conformational entropy. In biomolecular and soft-matter contexts, such
-degeneracy-driven entropy contributions are crucial; for example,
-conformational transitions may be stabilized not by enthalpy, but by the
-sheer number of accessible microstates consistent with a specific CV
-value. Similarly, free energy barriers can reflect entropic bottlenecks
-where the accessible volume of phase space
+[fig:entropy](#fig:entropy)a. Two basins with identical potential energy
+can display different free energies when projected onto a single CV if
+one basin corresponds to a broader configurational ensemble. In Fig.
+[fig:entropy](#fig:entropy)b, the difference in free energy between
+metastable states arises entirely from conformational entropy. In
+biomolecular and soft-matter contexts, such degeneracy-driven entropy
+contributions are crucial; for example, conformational transitions may
+be stabilized not by enthalpy, but by the sheer number of accessible
+microstates consistent with a specific CV value. Similarly, free energy
+barriers can reflect entropic bottlenecks where the accessible volume of
+phase space
 narrows.[@gimondi2018building; @polino2020collective; @kollias2020role; @leanza2023into; @serse2024unveiling]
 
 ```{figure} Figures/Figure_Entropy.png
@@ -204,8 +214,9 @@ narrows.[@gimondi2018building; @polino2020collective; @kollias2020role; @leanza2
 :width: \linewidth
 (a) Two-dimensional model potential energy surface, $E_P(x,y)$, and corresponding projection on the map variable (x) used to illustrate the decomposition of the free energy surface into energetic and entropic contributions, following Gimondi, Tribello, and Salvalaglio (2018). The potential energy landscape features two basins of comparable depth (A and B) but markedly different widths along the hidden coordinate (y). When the free energy is projected on (x), this degeneracy in the hidden coordinate manifests as an apparent stabilization of basin B due to entropic effects. (b) One-dimensional profiles of the free energy $\Delta F(x)$ (blue), average potential energy $\Delta U(x)$ (red), and entropic term $-T \Delta S(x)$ (green). This decomposition illustrates that, although the two minima have identical potential energies, basin B exhibits a lower free energy because of its greater configurational degeneracy in (y), which increases its entropy. This simple model highlights how projecting a multidimensional energy landscape onto a limited set of collective variables can lead to apparent thermodynamic stabilization arising from hidden entropic contributions. Reproduced with permission from Gimondi and Salavalaglio JCP 2018(Gimondi, Tribello, and Salvalaglio 2018)
 ```
-:::{.textbox}
-### Energy--Entropy Decomposition of a Free Energy Surface
+:::{important}
+:icon: false
+### Energy--Entropy Decomposition of a Free Energy Surface[]{#box:entropy label="box:entropy"}
 
 The FES $F(\xi)$ maps the thermodynamic potential used to characterize
 the thermodynamic stability of molecular configurations mapped onto
@@ -216,8 +227,7 @@ microstates compatible with the value of $\xi$:
 $$U(\xi) = \langle U(\mathbf{r}) \rangle_{\xi} =
  \frac{\int d\mathbf{r} U(\mathbf{r}) e^{-\beta U(\mathbf{r})} \delta(\xi(\mathbf{r})-\xi)}{\int d\mathbf{r} e^{-\beta U(\mathbf{r})} \delta(\xi(\mathbf{r})-\xi)}$$
 The entropy then follows from: $S(\xi) = T^{-1}(U(\xi) - F(\xi))$.
-[]{#box:entropy label="box:entropy"}
 
 :::
 
-# References {#bibliography .unnumbered}
+# References

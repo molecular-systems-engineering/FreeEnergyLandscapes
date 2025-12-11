@@ -1,3 +1,5 @@
+# Introduction
+
 Free Energy Surfaces (FESs) are low-dimensional representations of the
 thermodynamic stability of *ensembles* of atomic configurations. As
 such, FESs are valuable tools for mapping, rationalising, and navigating

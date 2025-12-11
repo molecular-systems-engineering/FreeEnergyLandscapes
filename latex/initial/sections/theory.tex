@@ -1,13 +1,15 @@
-\begin{marginnote}
-\entry{Phase Space Vector}{Indicated with $\Gamma$, it is, for a system without constraints,  a 6$N$-tuple that encompasses the positions $\mathbf{r}=(\mathbf{r}_1,\ldots\mathbf{r}_N)$ and momenta $\mathbf{p}=(\mathbf{p}_1,\ldots\mathbf{p}_N)$ of all $N$ particles in a system. Here, we represent this as:
-$\Gamma = (\mathbf{r},\mathbf{p})$
-.\cite{tuckerman2023statistical}}
-\entry{Microstate}{A specific realization of the phase space vector $\Gamma$ represents a single point in the 6N-dimensional phase space, defining the complete microscopic state of a classical system at a given instant in time. \cite{tuckerman2023statistical}}
-\entry{Hamiltonian}{Indicated with $H(\Gamma)$, it is a fundamental function in classical mechanics that describes the total energy of a system as a function of its generalized coordinates and conjugate momenta. \cite{tuckerman2023statistical} }
-\end{marginnote}
-
 \subsection{Thermodynamic Potentials and Partition Functions}
 In the canonical ensemble, which describes a system at constant number of particles ($N$), volume ($V$), and temperature ($T$), the probability density $f(\mathbf{r}, \mathbf{p})$ of finding the system in a particular \emph{microstate} characterized by the 6-N dimensional phase space vector of atomic (Cartesian, for simplicity) coordinates and momenta $\Gamma = (\mathbf{r},\mathbf{p})$ is proportional to the Boltzmann factor  $e^{-\beta H(\mathbf{x},\mathbf{p})}$, which measures the total energy of the microstate, expressed by the Hamiltonian $H$, in units of the thermal energy $kT = 1/\beta$, $k$ being the Boltzmann constant and $T$ the absolute temperature.\cite{chandler1978statistical,frenkel_understanding_2023,tuckerman2023statistical} 
+\begin{marginnote}
+\entry{Phase Space Vector}
+Indicated with $\Gamma$, it is, for a system without constraints,  a 6$N$-tuple that encompasses the positions $\mathbf{r}=(\mathbf{r}_1,\ldots\mathbf{r}_N)$ and momenta $\mathbf{p}=(\mathbf{p}_1,\ldots\mathbf{p}_N)$ of all $N$ particles in a system. Here, we represent this as: $\Gamma = (\mathbf{r},\mathbf{p})$.\\
+\entry{Microstate}
+A specific realization of the phase space vector $\Gamma$ represents a single point in the 6N-dimensional phase space, defining the complete microscopic state of a classical system at a given instant in time.\\
+\entry{Hamiltonian}
+Indicated with $H(\Gamma)$, it is a fundamental function in classical mechanics that describes the total energy of a system as a function of its generalized coordinates and conjugate momenta. \cite{tuckerman2023statistical}  
+\end{marginnote}
+
+
 
 The normalization constant of the phase-space density $f(\mathbf{r}, \mathbf{p})$ is the  \emph{partition function} - $Z$ - which is, in essence, a (Boltzmann-weighted) count of the number of accessible microstates and enables a direct connection between molecular configurations (i.e., realizations of $\mathbf{r}, \mathbf{p}$), and thermodynamic concepts familiar to an engineering audience. 
 
@@ -50,8 +52,8 @@ A = -kT \ln Q_{NVT}  + kT\ln\left( N!\Lambda^{3N}\right),
 where the first term on the right-hand side is the configurational free energy and the second one the translational free energy. Other thermodynamic quantities (that is, quantities that depend on the macroscopic control parameters $N,V,T$ only) can then be computed as derivatives of $A_{NVT}$. Other statistical ensembles can be derived, for instance—but not necessarily—from the canonical ensemble through a Legendre transformation with respect to one control variable. This operation yields a new distribution function that corresponds to the Laplace transform of the original one. 
 In what follows, we use the symbol $F$ to refer to the free energy or thermodynamic potential without connection to an ensemble in particular. The specific meaning of $F$ ---whether Helmholtz or Gibbs free energy--- depends on the statistical ensemble used to generate the molecular samples used to compute free energy surfaces as discussed in Section \ref{sec:Computing}. 
 
-\begin{marginnote}\entry{Isothermal-Isobaric Ensemble} {The isothermal–isobaric partition function is related to the canonical partition function via \cite{tuckerman2023statistical}: $\Delta_{NPT}=\int_0^\infty dV\, e^{-\beta PV}\, Z_{NVT}$}
-\label{note:NPT}
+\begin{marginnote}\entry{Isothermal-Isobaric Ensemble}
+The isothermal–isobaric partition function is related to the canonical partition function via \cite{tuckerman2023statistical}: $\Delta_{NPT}=\int_0^\infty dV\, e^{-\beta PV}\, Z_{NVT}\label{note:NPT}$
 \end{marginnote}
 
 \subsubsection{From Thermodynamic Potential to Free Energy Differences}
