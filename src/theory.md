@@ -216,7 +216,7 @@ narrows.[@gimondi2018building; @polino2020collective; @kollias2020role; @leanza2
 ```
 :::{important}
 :icon: false
-### Energy--Entropy Decomposition of a Free Energy Surface[]{#box:entropy label="box:entropy"}
+### Energy--Entropy Decomposition of a Free Energy Surface
 
 The FES $F(\xi)$ maps the thermodynamic potential used to characterize
 the thermodynamic stability of molecular configurations mapped onto
@@ -227,6 +227,7 @@ microstates compatible with the value of $\xi$:
 $$U(\xi) = \langle U(\mathbf{r}) \rangle_{\xi} =
  \frac{\int d\mathbf{r} U(\mathbf{r}) e^{-\beta U(\mathbf{r})} \delta(\xi(\mathbf{r})-\xi)}{\int d\mathbf{r} e^{-\beta U(\mathbf{r})} \delta(\xi(\mathbf{r})-\xi)}$$
 The entropy then follows from: $S(\xi) = T^{-1}(U(\xi) - F(\xi))$.
+[]{#box:entropy label="box:entropy"}
 
 :::
 
