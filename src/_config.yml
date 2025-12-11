@@ -5,3 +5,7 @@ author: "Marcello Sega and Matteo Salvalaglio"
 execute:
   execute_notebooks: "off"
 
+html:
+  extra_css:
+    - custom.css
+

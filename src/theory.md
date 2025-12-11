@@ -46,7 +46,7 @@ $$Q_{NVT} = \int d\mathbf{r} e^{-\beta U(\mathbf{r})}$$ and
 $\Lambda = h/\sqrt{2\pi m kT}$ is the thermal wavelength for particles
 of mass $m$.
 
-::: textbox
+:::{.textbox}
 ### Z or Q?
 
 There is often confusion about which symbol refers to the full partition
@@ -59,6 +59,7 @@ and Tildesley[@allen2017computer], use $Q$ for the full partition
 function, while Rowlinson and Widom[@rowlinson2002molecular],
 Kittel[@kittel2004elementary] and Landau and Lifshitz[@landau5] use $Z$.
 Here, we follow the latter convention.
+
 :::
 
 The configuration (marginal) probability density function is in this
@@ -203,8 +204,7 @@ narrows.[@gimondi2018building; @polino2020collective; @kollias2020role; @leanza2
 :width: \linewidth
 (a) Two-dimensional model potential energy surface, $E_P(x,y)$, and corresponding projection on the map variable (x) used to illustrate the decomposition of the free energy surface into energetic and entropic contributions, following Gimondi, Tribello, and Salvalaglio (2018). The potential energy landscape features two basins of comparable depth (A and B) but markedly different widths along the hidden coordinate (y). When the free energy is projected on (x), this degeneracy in the hidden coordinate manifests as an apparent stabilization of basin B due to entropic effects. (b) One-dimensional profiles of the free energy $\Delta F(x)$ (blue), average potential energy $\Delta U(x)$ (red), and entropic term $-T \Delta S(x)$ (green). This decomposition illustrates that, although the two minima have identical potential energies, basin B exhibits a lower free energy because of its greater configurational degeneracy in (y), which increases its entropy. This simple model highlights how projecting a multidimensional energy landscape onto a limited set of collective variables can lead to apparent thermodynamic stabilization arising from hidden entropic contributions. Reproduced with permission from Gimondi and Salavalaglio JCP 2018(Gimondi, Tribello, and Salvalaglio 2018)
 ```
-
-::: textbox
+:::{.textbox}
 ### Energy--Entropy Decomposition of a Free Energy Surface
 
 The FES $F(\xi)$ maps the thermodynamic potential used to characterize
@@ -217,6 +217,7 @@ $$U(\xi) = \langle U(\mathbf{r}) \rangle_{\xi} =
  \frac{\int d\mathbf{r} U(\mathbf{r}) e^{-\beta U(\mathbf{r})} \delta(\xi(\mathbf{r})-\xi)}{\int d\mathbf{r} e^{-\beta U(\mathbf{r})} \delta(\xi(\mathbf{r})-\xi)}$$
 The entropy then follows from: $S(\xi) = T^{-1}(U(\xi) - F(\xi))$.
 []{#box:entropy label="box:entropy"}
+
 :::
 
 # References {#bibliography .unnumbered}
