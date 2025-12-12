@@ -7,17 +7,18 @@ local utils = require 'pandoc.utils'
 -- Convert LaTeX-ish widths like 0.5\textwidth -> "50%"
 local function width_to_pct(width)
   if not width then
-    return nil
+     return "100%"
   end
-  local num = width:match("([%d%.]+)\\textwidth")
-             or width:match("([%d%.]+)\\\\textwidth")
+  local num = width:match("([%d%.]+)\\....width")
+             or width:match("([%d%.]+)\\\\....width")
   if num then
     local n = tonumber(num)
     if n then
       return string.format("%.0f%%", n * 100.0)
     end
+    return "100%"
   end
-  return width
+  return "100%"
 end
 
 -- Turn a list of inlines into Markdown, keeping math as $...$ / $$...$$
@@ -68,6 +69,8 @@ function Para(el)
   end
   if width and width ~= "" then
     table.insert(lines, ":width: " .. width)
+  else
+    table.insert(lines, ":width: 100%" )
   end
   if caption ~= "" then
     table.insert(lines, caption)

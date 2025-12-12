@@ -25,7 +25,7 @@ In all methods that follow this approach, \(V(\xi)\) is designed to enhance conf
 The process of computing $p(\xi)$ from $p_b(\xi)$ is commonly referred to as reweighting, and it is rooted in Zwanzig's free energy perturbation.
 In the following, we introduce the foundational ideas of free energy perturbation and thermodynamic integration, then, by referring to these bases, we survey methods for the calculation of free energy surfaces from \emph{biased} Hamiltonians. In this section, after introducing foundational free energy estimators such as Free Energy Perturbation and Thermodynamic Integration, we include methods that build on \emph{static restraints} (Umbrella Sampling), \emph{holonomic constraints} (Blue Moon Ensemble), and \emph{adaptive bias} (Metadynamics and notable derived methods). The landscape of methods that enable the calculation of FESs is vast, encompassing a range of variants of the methods discussed here, as well as methods based on different principles. For an exhaustive survey on bias-based enhanced sampling methods for calculating FESs, the interested reader should refer to Ref. \cite{henin2022enhanced}. 
 
-\subsubsection{Free Energy Perturbation and Thermodynamic Integration\label{sec:FEP}}
+\subsubsection{Free Energy Perturbation and Thermodynamic Integration}\label{sec:FEP}
 The term Free Energy perturbation (FEP) describes a series of methods that have their origin in the thermodynamic perturbation (TP) method, which evaluates the free-energy change for a jump from a reference Hamiltonian \(H_0\) to a perturbed one \(H_1\) via Zwanzig’s formula \cite{zwanzig1954high},
 \begin{equation}
 \Delta F = -kT\ln \left\langle e^{-\beta(H_1-H_0)}\right\rangle_0,\label{eq:zwanzig}
@@ -79,7 +79,7 @@ If holonomic constraints are imposed instead of restraints, correct unbiasing re
 \label{fig:biased}
 \end{figure}
 
-\subsection{Umbrella Sampling\label{sec:UmbrellaSampling}} 
+\subsection{Umbrella Sampling}\label{sec:UmbrellaSampling}
 Umbrella sampling (US) was introduced by Torrie and Valleau in the 1970s \cite{torrie1977nonphysical,kastner2011umbrella} as one of the earliest enhanced-sampling methods to compute a FES along a CV \(\xi\). US is a \emph{static} bias method, i.e., the potential introduced as a perturbation to the system's Hamiltonian is only a function of \(\xi\), and does not change in time. The central idea of US is to overcome the poor sampling of high-energy regions in \(\xi\) by introducing a - usually harmonic - restraint, that localizes the sampling around a reference value $\xi_i^{\mathrm{ref}}$:
 \begin{equation}
 V_i(\xi) = \frac{1}{2} K (\xi - \xi_i^{\mathrm{ref}})^2 .
