@@ -1,0 +1,62 @@
+## Position-dependent compression of configuration space: Geometric Free Energy Surface {#sec:Geometric}
+
+When a free energy profile is expressed along a curvilinear reaction
+coordinate, geometric contributions naturally appear. For instance, in
+the case of a distance coordinate, the probability density scales with
+the measure of the corresponding hyperspherical shell, leading to an
+entropic term in the associated potential of mean force. This
+contribution is not specific to any interaction but arises purely from
+the geometry of configuration space. It reflects the fact that a single
+value of a coordinate might not necessarily correspond to a macroscopic,
+identifiable state.
+
+### Potential of Mean Force and the role of the metric
+
+The potential of mean
+force[@onsager1933theories; @kirkwood_statistical_1949] formalizes the
+idea that an effective two-body potential could describe many-body
+correlations averaged over solvent and other particles. The probability
+density $P(\xi)$ of a RC $\xi(\mathbf r)$ to have a specific value $\xi$
+is
+$$p(\xi)=\frac{1}{Q}\int d\mathbf r \delta\big(\xi(\mathbf r)-\xi\big)e^{-\beta U(\mathbf r)},$$
+and the PMF with respect to a reference $\xi_0$ is
+$$w(\xi)=-kT\ln P(\xi)+w(\xi_0)$$
+
+### Intuitive view:
+
+when the potential $U=0$, the PMF should be uniform and the probability
+of finding the system in a region of configuration space must be
+proportional to the accessible volume. For the distance $r$ between two
+particles, the probability scales with the volume of the spherical shell
+$4\pi r^{2} dr$. This motivates the definition of the PMF from the
+radial probability density, $$P(r) \propto 4\pi r^{2}e^{-\beta w(r)},
+\qquad
+w(r)=-kT\ln \left[ P(r)/ 4 \pi r^2\right] +\mathrm{const}.$$ The extra
+term $kT\ln(4\pi r^2)$ is therefore entropic, reflecting the growing
+number of configurations at larger separations.
+
+### Which probability?
+
+One may ask whether to define probabilities directly in terms of $w$ or
+to include geometric factors "by hand". The rigorous answer is that the
+correct measure is determined by marginalizing the full phase--space
+density. In generalized coordinates $\mathbf{q}$ with conjugate momenta
+$\mathbf{p}$, the canonical distribution is [@gibbs1906scientific]
+$$P(\mathbf{q},\mathbf{p})\propto e^{-\beta \left[ \frac{1}{2} \mathbf{p}^t M^{-1}(\mathbf{q})\mathbf{p} + U(\mathbf{q})\right]},$$
+with the mass--metric tensor
+$M(\mathbf{q})=J(\mathbf{q})^t m J(\mathbf{q})$, where $J$ is the
+Jacobian of the transformation from Cartesian to generalized coordinates
+and $m$ the diagonal matrix with the atomic masses. Integrating out
+momenta via a Gaussian integral gives
+$$\int d\mathbf{p} e^{-\frac{1}{2}\beta \mathbf{p}^tM^{-1}\mathbf{p}}
+= (2\pi kT)^{n/2}\sqrt{\det M(\mathbf{q})},$$ so that the
+configurational probability is
+$$P(\mathbf{q})\propto \sqrt{\det M(\mathbf{q}) } e^{-\beta U(\mathbf{q})}.$$
+If the masses are all equal, they factorize out, and instead of $M$, the
+metric factor $g = J_\mathbf{q}^t J_\mathbf{q}$ is used, where
+$\sqrt{\det g} = \vol{J_\mathbf{q}}$ is the volume element. For
+spherical coordinates of a relative vector,
+$\sqrt{\det g}=r^{2}\sin\theta$, and for an isotropic environment,
+integrating over the solid angle one recovers the intuitive result.
+
+# References
