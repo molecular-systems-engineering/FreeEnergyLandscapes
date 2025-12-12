@@ -1,8 +1,14 @@
-::: keywords
-Molecular Thermodynamics, Free Energy Surfaces, Computational Physical
-Chemistry, Reaction Coordinates, Machine Learning, Artificial
-Intelligence
-:::
+---
+title: Free Energy Surfaces
+authors:
+  - name: Marcello Sega
+    affiliations:
+      - Department of Chemical Engineering, University College London
+  - name: Matteo Salvalaglio
+    affiliations:
+      - Department of Chemical Engineering, University College London
+    email: m.salvalaglio@ucl.ac.uk
+---
 
 (sec:Introduction)=
 # Introduction
