@@ -13,8 +13,8 @@ project:
     - file: src/introduction.md
     - file: src/theory.md
     - file: src/computing_free_energy_surfaces.md
-    - file: machine_learned_cvs.md
-    - file: summary_and_conclusions.md
+    - file: src/machine_learned_cvs.md
+    - file: src/summary_and_conclusions.md
     
 site:
   template: book-theme
