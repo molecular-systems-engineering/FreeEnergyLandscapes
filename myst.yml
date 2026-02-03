@@ -8,9 +8,6 @@ project:
     - file: sections_md/introduction.md
     - file: sections_md/theory.md
     - file: sections_md/computing_biased_FEP.md
-    - file: sections_md/BindingFreeEnergies.md
-    - file: sections_md/computing_Jarzynski.md
-    - file: sections_md/computing_pathbased.md
     - file: sections_md/FG_and_MLCVs.md
     - file: sections_md/summary_and_conclusions.md
 title: Molecular Understanding of Free Energy Landscapes
@@ -36,7 +33,7 @@ site:
     theme: light
     theme_switcher: false
 # Bibliography: point to consolidated BibTeX file used by the site
-bibliography: exported.bib
+bibliography: bibliography/exported.bib
 # Sphinx config passthrough: ensure sphinxcontrib-bibtex knows the bib file
 sphinx:
   config:

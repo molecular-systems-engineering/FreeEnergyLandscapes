@@ -25,6 +25,28 @@ sampling methods address this by accelerating rare transitions, ensuring
 thorough exploration of relevant states, and yielding reliable FESs that
 capture both thermodynamic stability and kinetic accessibility.
 
+
+```{figure} ./Figures/FESs_water.png
+:label: sec:case-study-water
+:alt: Figure 4
+:align: center
+
+**Discovering and Mapping Elusive Metastable Phases of Water.** Two
+FESs at different T and P for the ST2 model of water. **A.** The FES
+shows the coexistence between liquid water and ice Ih at 2.6 kbar and
+275 K. Ice and water are in equilibrium, hence their respective FES
+minima have the same depth. **B.** FES in conditions where Ice is
+stable, and liquid water is metastable (228.6 K, 2.4 kbar).
+Interestingly, liquid water in these conditions is characterized by two
+local minima at low and high density (Poole et al. 1992; Palmer et al.
+2014; Gallo et al. 2016). In their landmark study, Palmer et al. used
+six complementary sampling and Free Energy calculations techniques to
+demonstrate that the two liquids are separated by a 4 $\kT$ barrier,
+with finite-size scaling indicative of a first-order transition. At the
+same time, both remain metastable relative to cubic ice. Figure
+reproduced with permission from(Palmer et al. 2014).
+```
+
 (recovering-ergodicity-via-biased-sampling-foundations)=
 ## Recovering Ergodicity via Biased Sampling: Foundations
 
@@ -113,7 +135,7 @@ in Sec.[sec:BM](#sec:BM).
 
 ```{figure} ./Figures/Figure_biased_sampling.png
 :label: fig:biased
-:alt: Figure 4
+:alt: Figure 5
 :align: center
 
 **Overcoming sampling limitations with biased approaches** 
@@ -289,6 +311,35 @@ to obtain *time-independent free-energy estimators*, which recover
 $F(\xi)$ or the distribution of *other* observables from a trajectory
 sampled under the effect of a time-dependent bias [@metaD_reweight; @wt_metaD_2; @Marinova2019; @giberti2019iterative; @Ono2020MetaD].
 
+```{figure} ./Figures/Figure_reactions.png
+:label: fig:reactions
+:alt: Figure 6
+:align: center
+
+**Free energy landscapes of reactions in complex systems**\
+**A.** A landmark use of metadynamics for reaction discovery from Cheng
+et al. on CO reduction on copper (Cheng, Xiao, and Goddard III 2017).
+Using ab initio molecular dynamics with explicit water and Blue Moon
+refinement, they computed atomistic free-energy barriers and pathways.
+At moderate potentials (U \> --0.6 V vs RHE, pH 7), ethylene dominates
+via CO--CO coupling in an Eley--Rideal step ($\Delta G^\ddag = 0.69$
+eV), while at more negative potentials hydrogen blocks sites, favoring
+methane formation through a $^*$CHO intermediate. The study offers a
+mechanistic basis for tuning Cu-based catalysts in electrochemical
+CO$_2$ reduction. **B.** A recent example of the traditional use of US
+is the study of the catalytic mechanism of PETase by Jerves et
+al.(Jerves et al. 2021), providing the first quantitative free-energy
+description of PETase catalysis by mapping the full reaction cycle with
+QM/MM US. Despite the absence of more modern collective-variable
+discovery tools, the study showed that chemical insight can guide the
+selection of effective CVs. The FE profile reproduced experimental
+barriers (20.0 kcal/mol vs. 18--19 kcal/mol measured) and revealed a
+concerted, tetrahedral transition state mechanism distinct from earlier
+proposals. 
+```
+
+
+
 Recent developments have further generalized ideas originating from
 metadynamics by recasting bias construction in probabilistic or
 variational terms, giving rise to methods such as Variationally Enhanced
@@ -299,3 +350,133 @@ probability density and a reweighting-based update of the bias; GAMBES,
 instead, reconstructs the bias from a Gaussian Mixture approximation of
 the sampled probability distribution. We refer the reader interested in
 additional details to the comprehensive review of Henin et al. [@henin2022enhanced].
+
+
+
+(free-energy-profiles-and-equilibrium-constants)=
+# Free Energy Profiles and Equilibrium Constants
+
+Free energy profiles and PMFs link probabilities to partition functions, allowing computation of equilibrium constants for binding reactions.
+Care must be taken when connecting to standard free energies, as
+equilibrium constants in statistical mechanics depend on the reference concentration and are dimensionless, while experimental $\Delta G^\circ$ values refer to $c^\circ=1$ M. To avoid confusion, here we refer to the (concentration-based) mass action equilibrium constant using the symbol $K_c$. For association reactions $R+L\rightleftharpoons RL$, the mass action law gives $$K_c=\frac{[RL]}{[R][L]},\qquad \Delta G^\circ=-kT\ln(K_c c^\circ),$$ but this holds only in the thermodynamic limit. In finite simulation boxes containing one receptor and one ligand, the equilibrium constant is instead expressed through 
+the ratio of Boltzmann probabilities for bound and unbound states [@de2011determining]:
+$$\Delta G^\circ=-kT\ln\frac{p(RL)}{p(R+L)}-kT\ln(c^\circ/c),$$ where $c$ is the box concentration, and volume change effects are neglected.
+Writing $p(RL)/p(R+L)=Q_{RL}/Q_{R+L}$, the corresponding mass action
+equilibrium constant becomes $K_c=VQ_{RL}/Q_{R+L}$. Roux proposed an
+equivalent form using a delta function to fix the ligand in bulk 
+[@woo2005calculation; @roux2008comment]. Gilson et al. derived
+the same constant from activities for a rigid ligand,
+
+$$
+\Delta G^\circ=-RT\ln\left(\frac{c^\circ}{8\pi^2}\frac{\sigma_R\sigma_L}{\sigma_{RL}}\frac{Q_{RL}Q_S}{Q_RQ_L}\right)+P^\circ\Delta\bar V_{AB},
+$$
+
+where the $8\pi^2$ term arises from rotational integration, $\sigma_i$
+are symmetry numbers, and $Q_S$ the solvent partition function. The
+contribution coming from volume changes
+$\Delta \bar V_{LR} = V_{LR} -V_L -V_R$ is spelled out explicitly, and the infinite dilution identity $Q_RQ_L/ Q_S = Q_{R+L}$ has been used.
+This formulation underpins the double--decoupling method (DDM), in which the ratio of partition functions is obtained by decoupling the ligand at the binding site and in the bulk. Boresch et al. introduced a minimal set of six restraints (one distance $r$, two angles $\theta_i$, and three dihedral angles $\phi_i$) to restore the free energy cost of decoupling. The correction is expressed in terms of the respective equilibrium distance $r_0$, angles $\theta_{i,0}$, and force constants $K_r$, $K_{\theta_i}$ and $K_{\phi_i}$, as
+$$\Delta G_{\rm restr}=-kT\ln\frac{8\pi^2V\sqrt{K_rK_{\theta_1}K_{\theta_2}K_{\phi_1}K_{\phi_2}K_{\phi_3}}}{r_0^2\sin\theta_{1,0}\sin\theta_{2,0}(2\pi kT)^3}.$$
+The DDM thus provides a general alchemical framework - encompassing
+confine-and-release variants - whose rigor relies on the proper
+application and unbiasing of restraints [@gilson1997statistical; @bian2025formally]. 
+
+(reaction-paths-on-the-free-energy-landscapes-transition-path-sampling)=
+# Reaction Paths on the Free Energy Landscapes: Transition Path Sampling
+
+As mentioned in Sec.[sec:kinetics](#sec:kinetics), FEPs can be used to
+extract useful information about reaction kinetics, but care must be
+taken in presence of complex landscapes. A complementary class of
+approaches focuses on determining representative transition pathways by
+optimizing geometric or variational principles. Across these families of
+methods, algorithms inspired by minimum‐action geometry - such as Nudged Elastic Band and its extensions [@jonsson1998nudged; @henkelman2000improved;wang2016automated; @asgeirsson2021nudged] as well as
+finite-temperature string approaches [weinan2002string; weinan2005finite; @ren2007simplified] and Onsager-Machlup formulations [@onsager1953fluctuations; @adib2008stochastic; @faccioli2006dominant] - contrast with flux-based kinetic formalisms such as the Bennett-Chandler theory [@ruiz1997efficient; @string_method_meraglioano_2006; vanden2010transition] in that the former determine representative transition pathways by extremizing geometric or variational principles, whereas the latter quantify
+reaction rates through time-correlation functions and dynamical recrossing statistics. 
+
+These geometric and variational approaches
+provide valuable insight into likely pathways, but a complete statistical description of rare events requires sampling full reactive trajectories, as achieved by Transition Path Sampling (TPS). For a
+Markovian dynamics, the probability density of a trajectory
+$\{\mathbf{r}\}=(\mathbf{r}_0,\mathbf{r}_1,\dots,\mathbf{r}_t)$ is
+$$p[\{\mathbf{r}\}] = \rho(\mathbf{r}_0)\prod_{i=0}^{t-1}p(\mathbf{r}_{i+1}|\mathbf{r}_i),\label{eq:path-prob}$$
+where $\rho(\mathbf{r}_0)$ is the equilibrium distribution and
+$p(\mathbf{r}_{i+1}|\mathbf{r}_i)$ the conditional propagator [@Bolhuis2002]. The probability that a trajectory initiated in $A$ reaches
+$B$ at time $t$ is
+$$C(t) = \frac{\langle h_A(\mathbf{r}_0),h_B(\mathbf{r}_t)\rangle}{\langle h_A(\mathbf{r}_0)\rangle}
+= \frac{\mathcal{Z}_{AB}(t)}{\mathcal{Z}_A},$$ with
+$$\mathcal{Z}_A = \int\mathcal{D}\{\mathbf{x}\}h_A(\mathbf{r}_0)p[\{\mathbf{r}\}]\qquad
+\mathcal{Z}_{AB} = \int \mathcal{D}\{\mathbf{r}\} h_A(\mathbf{r}_0)p[\{\mathbf{r}\}]h_B(\mathbf{r}_t),$$
+where $\mathcal{Z}_A$ is the probability of a trajectory to start from
+$\mathbf{r}_0$, regardless of where it ends at time $t$, and
+$\mathcal{Z}_{AB}$ that to start in $r_0$ and end in $r_t$. These
+probabilities are expressed in terms of path integrals, effectively
+functional integrals over the set of all possible paths 
+[@feynman1948space; @kleinert2009path; @seifert2012stochastic]. The rate constant, for example, follows from the long-time derivative [@Bolhuis2002], $$k_{AB} = \lim_{t\to\infty}\frac{d}{dt}\left(\frac{Z_{AB}(t)}{Z_A}\right),$$ and the problem of evaluating the rate $k_{AB}$ reduces to sampling the path ensemble in the same conceptual way as equilibrium properties are obtained from the Boltzmann distribution. 
+
+One can generate trajectories that sample the biased probability of starting in region $A$ and ending
+in region $B$ without recrossing in a straightforward manner. Starting
+from one reactive path, new trial trajectories $\{\mathbf{r}'\}$ are
+generated by small stochastic modifications and integrated forward and
+backward in time, accepting or rejecting the new path $\{\mathbf{r}'\}$
+using a Metropolis scheme [@metropolis1949monte; @kalos2009monte; @frenkel_understanding_2023]. 
+In the microcanonical ensemble or other generalized ensembles with extended Hamiltonians, the acceptance
+probability becomes remarkably simple [@dellago2002transition] as all reactive proposals are accepted. 
+Quantities like the rate
+$k_{AB}$ are not directly accessible as they are computed with a normalization factor over the path starting in $A$ and ending at any
+point. However, TPS provides direct access to the transmission function
+$\kappa(t) = k(t)/k_{tst}$ via
+$\kappa(t) = \langle \dot h_B(t) \rangle_{AB} / \langle \dot h_B(0) \rangle_{AB}$.
+The rate constant can be accessed by supplementing TPS with a US in the
+TPE [@dellago1999calculation]. Sampling the TPE enables a
+straightforward computation of the committor function $p_B(\mathbf r)$
+(see Sec.[sec:committor](#sec:committor)). With TPS one can easily
+identify transition-state configurations by launching short trajectories
+from frames along the generated paths and selecting those for which
+$p_B\simeq{0.5}$.
+
+Related path-sampling approaches include Transition Interface Sampling (TIS) [@van2003novel; @van2005elaborating] Forward Flux Sampling (FFS) [@allen2009forward], and Markov State Models (MSMs) [@prinz2011markov; @chodera2014markov].
+
+TIS introduces a hierarchy of interfaces between $A$ and $B$, estimating the rate as the product of conditional crossing probabilities and the initial flux. 
+FFS instead propagates trajectories forward across
+interfaces, making it suitable for non-equilibrium or irreversible systems. 
+MSMs reconstruct long-time kinetics from short unbiased
+trajectories by estimating transition probabilities between metastable states, with rates and committors derived from the transition matrix.
+
+Further refinements include Precision, S-, and Aimless Shooting [@grunwald2008precision; @menzl2016s;   @peters2006obtaining], and hybrid schemes combining TPS with metadynamics or replica exchange [@borrero2016avoiding; @van2007reaction]. A
+detailed overview is given in [@bolhuis2021transition]. 
+
+
+(fess-from-experiments-single-molecule-force-spectroscopy)=
+# FESs from experiments: single molecule force spectroscopy
+
+Single-molecule force spectroscopy (SMFS) methods---such as AFM and
+optical or magnetic tweezers---enable experimental probing of molecular
+free-energy landscapes. A molecule is stretched between a surface and a
+probe applying controlled force or displacement, with the extension $s$
+serving as the reaction coordinate. The resulting mechanical response
+encodes the potential of mean force $F(s)$, recoverable from
+nonequilibrium work measurements via statistical--mechanical relations.
+A central theoretical foundation of this connection is Jarzynski's
+equality [@jarzynski1997nonequilibrium], which relates nonequilibrium work to
+equilibrium free-energy differences: $$e^{-\beta \Delta G(t)} =
+\left\langle e^{-\beta W(t)} \right\rangle ,
+\label{eq:Jarzynski}$$ where $W(t)$ is the external work performed along
+the pulling trajectory, and $\langle \dots \rangle$ denotes an average
+over many repetitions of the process. Remarkably, Eq.
+[eq:Jarzynski](#eq:Jarzynski) holds even for transformations driven
+arbitrarily far from equilibrium, providing a formal bridge between
+dynamical experiments and equilibrium thermodynamics. Hummer and Szabo [@hummer_free_2005], extended this result to the reconstruction of a full free-energy profile along the molecular extension coordinate $s$,
+obtaining $$e^{-\beta F_0(s)} =
+\left\langle
+\delta[s - s(x(t))]  e^{-\beta [W(t) - V(s(t),t)]}
+\right\rangle ,
+\label{eq:HummerSzabo}$$ where $V(s,t)$ is the time-dependent external
+potential applied during pulling. For instance, in optical-tweezer or AFM experiments, a harmonic trap of stiffness $k_s$ is displaced at constant velocity $v$, $V(s,t)=\tfrac12 k_s(s-vt)^2$.
+
+Equation [eq:HummerSzabo](#eq:HummerSzabo) enables reconstruction of the
+equilibrium free-energy profile $F_0(s)$ from nonequilibrium pulling
+trajectories. In the adiabatic limit, the work $W$ equals the reversible
+$\Delta F$, but real experiments require averaging over many
+trajectories to account for stochastic fluctuations. Liphardt et al. [@liphardt2002equilibrium] first validated this approach, showing RNA
+hairpin unfolding reproduced equilibrium free energies with sub-$kT$ accuracy. These combined experimental--computational approaches reveal
+intermediates and barriers, extending free-energy surface reconstruction into the experimental domain through nonequilibrium work theorems.
+
