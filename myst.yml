@@ -34,8 +34,10 @@ site:
     theme_switcher: false
 # Bibliography: point to consolidated BibTeX file used by the site
 bibliography: bibliography/exported.bib
+csl: csl/nature-publishing-group-vancouver.csl
 # Sphinx config passthrough: ensure sphinxcontrib-bibtex knows the bib file
 sphinx:
   config:
     bibtex_bibfiles:
       - bibliography/exported.bib
+

@@ -337,7 +337,7 @@ descriptor intended to capture the progress of *the* most probable
 transition pathway between reactants and products. An ideal RC is not
 only correlated with the transition but also uniquely parameterizes the
 progress of the reaction and identifies the transition state
-ensemble(Vanden-Eijnden 2006; Peters and Trout 2006; Peters 2017). An
+ensemble [@vanden2006transition; @Peters_2017; @peters2006obtaining]. An
 important point to note is that, when (a combination of) CVs provide a
 good approximation of the RC for a given physical transformation, saddle
 points in $F(\xi)$ correspond to the projection of the transition state
@@ -384,7 +384,7 @@ transform from reactants to products, thus opening the door to a kinetic
 interpretation of the free energy surface. The *generalised
 transition-state theory* (TST) links thermodynamics and kinetics by
 expressing the rate constant as the thermal average of the flux through
-a dividing surface in configuration space: 
+a dividing surface in configuration space [@Peters_2017]: 
 
 $$
 k_{\mathrm{TST}} =
@@ -396,7 +396,7 @@ $$
 The prefactor represents the average crossing
 velocity, while the Boltzmann factor gives the equilibrium probability
 of reaching the transition state. This form follows from the
-flux--over--population formalism of Hänggi, Talkner, and
+flux-over-population formalism of Hänggi, Talkner, and
 Borkovec [@hanggi_reaction-rate_1990], where the rate of barrier
 crossing is the ratio of the reactive flux $J$ to the reactant
 population $n_\mathrm{R}$,
@@ -412,7 +412,7 @@ in Sec. [sec:Computing](#sec:Computing). The exponential term is
 obtained from the simulation, while the prefactor follows from the mean
 thermal velocity along $\xi$. The TST formula does not consider barrier
 recrossing; these are fully included in approaches like the
-Bennett-Chandler reactive flux(Bennett, n.d.; Chandler 1978)
+Bennett-Chandler reactive flux [@bennett1977; @chandler1978statistical]
 $$k_{BC}(t) = \frac{\langle \dot{\xi}(0)  \delta[\xi(0)-\xi^\ddagger]  h_B[\xi(t)]\rangle}
 {\langle h_A \rangle},$$ where $h_A$ and $h_B$ are characteristic
 functions identifying reactants and products, and the rate $k$ is

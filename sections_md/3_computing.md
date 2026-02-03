@@ -41,7 +41,7 @@ Interestingly, liquid water in these conditions is characterized by two
 local minima at low and high density (Poole et al. 1992; Palmer et al.
 2014; Gallo et al. 2016). In their landmark study, Palmer et al. used
 six complementary sampling and Free Energy calculations techniques to
-demonstrate that the two liquids are separated by a 4 $\kT$ barrier,
+demonstrate that the two liquids are separated by a 4 $kT$ barrier,
 with finite-size scaling indicative of a first-order transition. At the
 same time, both remain metastable relative to cubic ice. Figure
 reproduced with permission from(Palmer et al. 2014).
