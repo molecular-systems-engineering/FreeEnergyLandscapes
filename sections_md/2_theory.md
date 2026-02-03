@@ -27,7 +27,7 @@ $$Z_{NVT} = \frac{1}{N! h^{3N}}\int e^{-\beta H(\Gamma)}d\Gamma .
 in the normalization factor: the count of permutations of identical
 particles $N!$ and the phase space volume unit, $h^{3N}$, set by the
 uncertainty principle, which are necessary to obtain an extensive
-entropy, avoid mixing entropy (Gibbs) paradoxes [@noyes1961entropy; (Noyes 1961; @frenkel_understanding_2023; @tuckerman2023statistical] and recover the Sackur-Tetrode entropy of the
+entropy, avoid mixing entropy (Gibbs) paradoxes [@noyes1961entropy; @frenkel_understanding_2023; @tuckerman2023statistical] and recover the Sackur-Tetrode entropy of the
 ideal gas [@Huang]. Following convention, we will use angular
 brackets to denote the canonical ensemble average of an observable
 $O(\Gamma)$, $$\langle O \rangle
@@ -423,4 +423,3 @@ necessity to locate it and the assumption of its uniqueness. Where this
 is not true [@vanden2006transition; @vanden2010transition], the
 bundle of transition paths must be sampled, as discussed in Section
 [sec:tps](#sec:tps).
-

@@ -196,7 +196,7 @@ gradients - across different training instances (see Fig. [fig:MLCVs_and_gradien
 normalization as a simple and effective approach to mitigate this issue.
 
 (machine-learningenhanced-transition-path-sampling)=
-## Machine-Learning--Enhanced Transition-Path Sampling
+## Machine-Learning-Enhanced Transition-Path Sampling
 
 Machine learning is reshaping transition-path sampling (TPS) by enabling
 adaptive discovery of reactive trajectories in complex systems. Recent
@@ -225,4 +225,4 @@ trajectory data, reduces costs, and generalizes across systems---laying
 the groundwork for future generative or diffusion-based transition-path
 theories.
 
-{#refs .references .csl-bib-body .hanging-indent entry-spacing="0"}
+

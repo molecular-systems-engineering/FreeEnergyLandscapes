@@ -60,7 +60,7 @@ Moon Ensemble, and Metadynamics enable the computation of FESs from
 biased ensembles; for a comprehensive overview, see Ref. [@henin2022enhanced].
 
 (free-energy-perturbation-and-thermodynamic-integration)=
-### Free Energy Perturbation and Thermodynamic Integration[]{#sec:FEP label="sec:FEP"}
+### Free Energy Perturbation and Thermodynamic Integration
 
 The term Free Energy perturbation (FEP) describes a series of methods
 originating in the thermodynamic perturbation (TP) one, which evaluates
@@ -339,7 +339,6 @@ proposals.
 ```
 
 
-
 Recent developments have further generalized ideas originating from
 metadynamics by recasting bias construction in probabilistic or
 variational terms, giving rise to methods such as Variationally Enhanced
@@ -382,7 +381,7 @@ confine-and-release variants - whose rigor relies on the proper
 application and unbiasing of restraints [@gilson1997statistical; @bian2025formally]. 
 
 (reaction-paths-on-the-free-energy-landscapes-transition-path-sampling)=
-# Reaction Paths on the Free Energy Landscapes: Transition Path Sampling
+# Reaction Paths on Free Energy Landscapes: Transition Path Sampling
 
 As mentioned in Sec.[sec:kinetics](#sec:kinetics), FEPs can be used to
 extract useful information about reaction kinetics, but care must be
