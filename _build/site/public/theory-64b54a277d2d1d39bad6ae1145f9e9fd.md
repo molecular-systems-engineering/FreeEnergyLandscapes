@@ -1,0 +1,436 @@
+# Theory: Defining a Free Energy Surface
+
+(thermodynamic-potentials-and-partition-functions)=
+## Thermodynamic Potentials and Partition Functions
+
+In the canonical ensemble, which describes a system at constant number
+of particles ($N$), volume ($V$), and temperature ($T$), the probability
+density $f(\mathbf{r}, \mathbf{p})$ of finding the system in a
+particular *microstate* characterized by the 6N-dimensional phase space
+vector of atomic (Cartesian, for simplicity) coordinates and momenta
+$\Gamma = (\mathbf{r},\mathbf{p})$ is proportional to the Boltzmann
+factor $e^{-\beta H(\mathbf{r},\mathbf{p})}$, which measures the total
+energy of the microstate, expressed by the Hamiltonian $H$, in units of
+the thermal energy $kT = 1/\beta$, $k_\mathrm{B}$ being the Boltzmann
+constant and $T$ the absolute temperature [@chandler1978statistical; @frenkel_understanding_2023; @tuckerman2023statistical]. The normalization constant of the
+phase-space density $f(\mathbf{r}, \mathbf{p})$ is the *partition
+function* $Z_{NVT}$, which is, in essence, a Boltzmann-weighted count of
+the number of accessible microstates and enables a direct connection
+between molecular configurations (i.e., realizations of
+$\mathbf{r}, \mathbf{p}$), and thermodynamic concepts familiar to an
+engineering audience.
+
+The partition function in the canonical ensemble for a system of $N$
+identical particles is written as:
+$$Z_{NVT} = \frac{1}{N! h^{3N}}\int e^{-\beta H(\Gamma)}d\Gamma .
+\label{eq:partitionNVT}$$ Two inherently quantum-mechanical terms appear
+in the normalization factor: the count of permutations of identical
+particles $N!$ and the phase space volume unit, $h^{3N}$, set by the
+uncertainty principle, which are necessary to obtain an extensive
+entropy, avoid mixing entropy (Gibbs) paradoxes [@noyes1961entropy; (Noyes 1961; @frenkel_understanding_2023; @tuckerman2023statistical] and recover the Sackur-Tetrode entropy of the
+ideal gas [@Huang]. Following convention, we will use angular
+brackets to denote the canonical ensemble average of an observable
+$O(\Gamma)$, $$\langle O \rangle
+= \int O(\Gamma)  f(\Gamma)d\Gamma
+= \frac{1}{Z_{NVT}} \int  O(\Gamma)  e^{-\beta H(\Gamma)}d\Gamma .$$
+
+:::{tip} Useful definitions
+**Phase Space Vector**Indicated with $\Gamma$, it is, for a system
+without constraints, a 6$N$-tuple that encompasses the positions
+$\mathbf{r}=(\mathbf{r}_1,\ldots\mathbf{r}_N)$ and momenta
+$\mathbf{p}=(\mathbf{p}_1,\ldots\mathbf{p}_N)$ of all $N$ particles in a
+system. Here, we represent this as: $\Gamma = (\mathbf{r},\mathbf{p})$
+.[@tuckerman2023statistical] 
+
+**Microstate** A specific realization of the
+phase space vector $\Gamma$ represents a single point in the
+6N-dimensional phase space, defining the complete microscopic state of a
+classical system at a given instant in time. [@tuckerman2023statistical]
+
+**Hamiltonian**Indicated with $H(\Gamma)$, it is a fundamental function
+in classical mechanics that describes the total energy of a system as a
+function of its generalized coordinates and conjugate momenta.
+[@tuckerman2023statistical]
+
+:::
+
+If the Hamiltonian can be written as the sum of independent kinetic and
+potential energy terms, $H(\Gamma) = K(\mathbf{p}) + U(\mathbf{r})$,
+momenta can be integrated out and the partition function can be
+expressed in terms of the configurational integral
+$$Q_{NVT} = \int  e^{-\beta U(\mathbf{r})}d\mathbf{r},$$ as $$Z_{NVT}
+=\frac{1}{N! \Lambda^{3N}} Q_{NVT},$$ where
+$\Lambda = h/\sqrt{2\pi m kT}$ is the thermal wavelength for particles
+of mass $m$. The configuration (marginal) probability density function
+is in this case [@tuckerman2023statistical]:
+$$f(\mathbf{r}) = \frac{e^{-\beta U(\mathbf{r})}}{Q_{NVT}} = \frac{e^{-\beta U(\mathbf{r})}}{\int  e^{-\beta U(\mathbf{r})}d\mathbf{r}}$$
+
+:::{tip} Useful Definitions
+
+**Z or Q?** 
+There is often confusion about which symbol refers to the
+full partition function, and which to the configurational one, and for
+good reasons! While IUPAC [@brett2023quantities]lists both $Z$ and $Q$
+as possible symbols for the partition function, without specifying
+whether it is the full or the configurational one, classic textbooks
+including Huang [@Huang], Frenkel and Smit
+[@frenkel_understanding_2023], and Allen and Tildesley
+[@allen2017computer], use $Q$ for the full partition function, while
+Rowlinson and Widom [@rowlinson2002molecular], Kittel
+[@kittel2004elementary] and Landau and Lifshitz [@landau5] use $Z$.
+Here, we follow the latter convention. 
+
+**Isothermal-Isobaric Ensemble**
+The isothermal--isobaric partition function is related to the canonical
+partition function via [@tuckerman2023statistical]:
+$\Delta_{NPT}=\int_0^\infty  e^{-\beta PV}Z_{NVT}dV$
+
+:::
+
+
+(from-partition-functions-to-thermodynamic-potentials)=
+### From Partition Functions to Thermodynamic Potentials
+
+The partition function $Z$ is a central quantity because it encodes all
+the thermodynamic information of the system in this ensemble. In the
+canonical ensemble, the thermodynamic potential, known as Helmholtz free
+energy, $A$, can be written as: $$A = -kT \ln Z_{NVT},$$ or, in terms
+of the configuration integral,
+$$
+A = -kT \ln Q_{NVT}  + kT\ln\left( N!\Lambda^{3N}\right), 
+\label{eq:FE}
+$$ 
+where the first term on the right-hand side is the
+configurational free energy and the second one the translational free
+energy. Other thermodynamic quantities (i.e., those that depend only on
+the macroscopic control parameters $N,V,T$) can then be computed as
+derivatives of $A$. Other statistical ensembles can be derived, for
+instance, from the canonical ensemble, through a Legendre transformation
+with respect to one control variable. This operation yields new
+distribution functions, corresponding to the Laplace transform of the
+original one. In what follows, we use the symbol $F$ to refer to the
+free energy or thermodynamic potential without connection to an ensemble
+in particular. The specific meaning of $F$ - whether Helmholtz or Gibbs
+free energy - depends on the statistical ensemble used to sample
+molecular configurations and compute free energy surfaces, as discussed
+in Section [sec:Computing](#sec:Computing).
+
+(from-thermodynamic-potential-to-free-energy-differences)=
+### From Thermodynamic Potential to Free Energy Differences
+
+Now, let us consider two disconnected regions of the phase space,
+$\Omega_A$ and $\Omega_B$, representing two sets of microstates
+associated with two distinct states of the system, $A$ and $B$. Such
+ensembles of configurations could correspond to the reactants and
+products of a chemical reaction, two different phases of the same
+substance, the unfolded and folded configurations of a biopolymer, etc.
+By integrating the normalized canonical phase space distribution within
+$\Omega_A$ (or $\Omega_B$), one can obtain the equilibrium probability
+to observe the system in state $A$ (or $B$), and thus the free energy
+difference between the two states:
+
+$$\Delta{F}_{A\rightarrow B}=-
+kT\ln\left[{\frac{\int
+{\mathbf{1}_{\mathbf{r}\in{\Omega_B}}f(\mathbf{r})}d\mathbf{r}}{\int
+{\mathbf{1}_{\mathbf{r}\in{\Omega_A}}f(\mathbf{r})}d\mathbf{r}}}\right]
+\label{eq:DF}$$ where $\mathbf{1}_{\mathbf{r}\in{A}}$,
+$\mathbf{1}_{\mathbf{r}\in{B}}$ are indicator functions selecting only
+microstates belonging to state $A$, and $B$, respectively. Integrating
+the indicator functions $\int
+{\mathbf{1}_{\mathbf{r}\in{\Omega_A}}f(\mathbf{r})}d\mathbf{r}$, $\int
+{\mathbf{1}_{\mathbf{r}\in{\Omega_B}}f(\mathbf{r})}d\mathbf{r}$) gives
+access to the equilibrium probability of states $A$ and $B$.
+
+```{figure} ./Figure_FES_concept.png
+:label: fig:FES_idea
+:alt: Figure 1
+:align: center
+
+**From microscopic configurations to the free energy surface.** Each
+molecular configuration ($\mathbf{r}_i \in \mathbf{R}^{3N}$, where $N$
+is the number of atoms) is mapped to a point in a reduced space of CVs
+($\xi(\mathbf{r}) \in \mathbf{R}^m$), with $m \ll 3N$. The marginal
+equilibrium probability $p(\xi)$, which quantifies the relative
+likelihood of observing configurations consistent with a given value of
+$\xi=[\xi_1,\xi_2]$. The corresponding free energy surface
+$F(\xi) = -kT \ln p(\xi) + C$ provides a readable map of thermodynamic
+stability and metastability in configuration space. Basins A and B
+correspond to metastable states separated by a free energy
+barrier.
+```
+
+
+(free-energy-surfaces-readable-maps-of-the-thermodynamic-potential)=
+## Free Energy Surfaces: readable maps of the thermodynamic potential
+
+Evaluating the equilibrium probability of state $i$, $p_{i}$, involves
+defining the indicator function $\mathbf{1}_{\mathbf{r}\in i}$, which
+identifies configurations in $\Omega_{i}$. Due to the high
+dimensionality of $\mathbf{r}$, this is challenging and typically
+addressed by introducing a low-dimensional mapping $\xi(\mathbf{r})$
+that groups similar microstates and allows defining the marginal
+equilibrium probability $p(\xi)$ as [@kirkwood1935statistical; @frenkel_understanding_2023; @tuckerman2023statistical]:
+$$p(\xi)=\int{f(\mathbf{r})\delta({\xi({\mathbf{r}})-\xi})d\mathbf{r}}
+\label{eq:marginal-prob}$$ where $p(\xi)$ is the equilibrium probability
+density of the ensemble of microstates mapping to the same value of
+$\xi(\mathbf{r})$. In this context, $p(\xi)$ can be interpreted as the
+(normalized) partition function associated with all the microstates
+mapped in $\xi$. In the following, to favor readability, we indicate
+$\xi$ as a scalar; however, its dimensionality can be higher than one,
+and extensions to higher dimensionality are straightforward(Laio and
+Parrinello 2002; Kästner 2011).
+
+In analogy with Eq.[eq:FE](#eq:FE) we can define a free energy for every
+$\xi$ as: $$F(\xi)=-kT\ln{p(\xi)}+C
+\label{eq:FES}$$ where $F(\xi)$ is the FES, and $C$ is an arbitrary
+constant, indicating that $F(\xi)$ is a measure of *relative*
+thermodynamic stability between ensembles of states that map to
+different values of $\xi$.
+
+Mapping configurations onto a physically meaningful $\xi$ such that,
+i.e., it captures slow transitions in the configurational ensemble (see
+Section [sec:CVs](#sec:CVs)), renders the features of $F(\xi)$
+informative. For instance, for a good choice of $\xi$, metastable states
+correspond to local minima in $F(\xi)$. As a consequence, free energy
+differences between metastable states become tractable as the domain of
+integration ($\Omega_i$ in Eq. [eq:DF](#eq:DF)) can be identified in
+reduced-dimensionality $\xi$ (see Fig. [fig:FES_idea](#fig:FES_idea)).
+
+A subtle but important point is that FESs are low-dimensional
+projections of configurational space, where each value of $\xi$
+represents an ensemble of possibly distinct microstates whose degeneracy
+contributes to the configurational entropy $S(\xi)$ [@gimondi2018building; @dietschreit2023entropy].
+Broadly degenerate regions have higher entropy, while narrowly defined
+ones follow the potential energy $U(\xi)$ more closely. The internal
+energy contribution to an FES is obtained as a conditional ensemble
+average over all microstates compatible with the value of $\xi$:
+
+$$
+U(\xi) = \langle U(\mathbf{r}) \rangle_{\xi} =
+ \frac{\int  U(\mathbf{r}) e^{-\beta U(\mathbf{r})} \delta(\xi(\mathbf{r})-\xi)d\mathbf{r}}{\int  e^{-\beta U(\mathbf{r})} \delta(\xi(\mathbf{r})-\xi)d\mathbf{r}}
+$$
+The entropy surface, then follows from:
+$S(\xi) = T^{-1}(U(\xi) - F(\xi))$.
+
+As illustrated in Fig. [fig:entropy](#fig:entropy), basins with
+identical potential energies can differ in free energy purely due to
+entropy, an effect crucial in biomolecular and soft-matter systems where
+conformational transitions and barriers often reflect entropic, rather
+than energetic, contributions [@gimondi2018building, polino2020collective, @kollias2020role, @leanza2023into, @Serse2024].
+
+```{figure} ./Figure_Entropy.png
+:label: fig:entropy
+:alt: Figure 2
+:align: center
+
+**Entropy and Energy surfaces in $\xi$** 
+**A.** Two-dimensional model potential energy surface, $U(x,y)$, and corresponding projection on the map variable (x) used to illustrate the decomposition of the free energy surface into energetic and entropic contributions, following
+Ref. (Gimondi, Tribello, and Salvalaglio 2018). The potential energy
+landscape features two basins of comparable depth (A and B) but markedly
+different widths along the coordinate $y$. **B.** One-dimensional
+profiles of the free energy $\Delta F(x)$ (blue), average potential
+energy $\Delta U(x)$ (red), and entropic term $-T \Delta S(x)$ (green).
+Although the two minima have identical $\Delta U(x)$, basin B exhibits a
+lower free energy because of its higher degree of configurational
+degeneracy in $y$, associated with higher entropy. Reproduced with
+permission from Ref. [@gimondi2018building].
+```
+
+## Collective Variables, Order Parameters, and Reaction Coordinates
+
+The central role of $\xi$ is to provide a reduced representation of the
+high-dimensional configuration space that retains the essential ability
+to distinguish relevant metastable states, and slow transition modes
+between them, for the molecular process of interest [@Kirkwood1935; @frenkel_understanding_2023, @tuckerman2023statistical]. Depending on the field of application, the characteristics of the studied process, and its own properties, the low-dimensional mapping $\xi$ can be referred to by different names. The most common are collective variables (CVs), order parameters (OPs), and reaction coordinates (RCs) (Hénin et al. 2022).
+Although these terms overlap partially and are sometimes used
+interchangeably by practitioners, they imply some fundamental
+distinctions. Clarifying and understanding their differences is thus
+crucial for a consistent interpretation of FESs associated with
+molecular transformations.
+
+```{figure} ./Figure_CVs2.png
+:label: box:ionpairinCV
+:alt: Figure 3
+:align: center
+
+**A. Reaction Coordinates and Collective Variables: Lessons from
+Ion-Pair Dissociation in Water.** 
+The distinction between CVs and RCs is
+both conceptual and practical. An early and historically influential
+example illustrating this difference is the dissociation of a
+Na$^+$Cl$^-$ ion pair in water, investigated by Geissler et al. (Phillip
+L. Geissler, Dellago, and Chandler 1999b). As illustrated by Geissler,
+two landscapes $F(r_{\text{ion}}, q_S)$ with identical projections
+$F(r_{\text{ion}})$ can imply distinct mechanisms. In the simplest
+case,*(a)*, the barrier in $F(r_{\text{ion}})$ defines the transition
+state, making $r_{\text{ion}}$ not only a good CV but also a RC.
+However, when solvent reorganization adds an orthogonal coordinate
+$q_S$, *b*, configurations at $r_{\text{ion}} = r^*$ belong to stable
+basins rather than the transition region, so $r_{\text{ion}}$ remains a
+good CV (able to distinguish dissociated from undissociated) but it is
+not a good RC.
+
+**B. Choosing the Right Coordinate: The Ring Puckering Example.** 
+The choice of CVs is critical in free-energy calculations, but not always
+obvious. Puckered ring conformers can be described by the Cremer--Pople
+Cartesian coordinates, obtained from the out-of-plane displacements
+$z_j$ of the 6-membered ring atoms as
+$q_x =  \sum_{0}^5 z_j \cos\left[\frac{2\pi}{3}j\right]/\sqrt{3}$,
+$q_y = -\sum_{0}^5 z_j \sin\left[\frac{2\pi}{3}j\right]/\sqrt{3}$,
+$\quad q_z = \sum_{0}^5 (-1)^j z_j/ \sqrt{6}$, or by their polar
+representation
+$\left(Q \sin \theta \cos \phi, Q \sin \theta \sin \phi, Q\cos \theta\right)$
+(left panel). Only $(\theta,\phi)$ are effective variables for biasing,
+as they capture conformer connectivity. Using two polar coordinates,
+metadynamics spans the entire puckering free-energy landscape for
+glucuronic acid (middle panel, 5 kJ/mol isolines), whereas biasing along
+Cartesian projections
+$(q_x,q_y)=(Q\sin\theta\cos\phi,Q\sin\theta\sin\phi)$ fails near the
+equatorial line. There, ergodicity is broken as the bias acts only
+perpendicularly to the puckering sphere (right panel). (Sega, Autieri,
+and Pederiva 2009).
+```
+
+(collective-variables-and-order-parameters)=
+### Collective Variables and Order Parameters
+
+A CV is the most general of the three denominations: it is any function
+of the atomic coordinates designed to reduce the enormous dimensionality
+of a molecular system into a smaller, more interpretable set of
+descriptors. To be useful, CVs must distinguish all the relevant
+long-lived metastable states involved in a transformation, i.e., the
+reactants and the products. In this case, the metastable states of
+interest will appear as local maxima in $p(\xi)$, and local minima in
+the FES, $F(\xi)$. Typical CVs include simple geometrical descriptors,
+such as distances and angles (Hénin et al. 2022; Fiorin, Klein, and
+Hénin 2013; "Promoting Transparency and Reproducibility in Enhanced
+Molecular Simulations" 2019; Tribello et al. 2025), as well as more
+complex functions, including measures of structural similarity
+(Pietrucci and Laio 2009) or progress along a path defined by a set of
+reference structures (Branduardi, Gervasio, and Parrinello 2007). It
+should be noted that CVs do not necessarily require a direct physical
+interpretation, and they can be abstract or highly engineered (Pietrucci
+and Andreoni 2011). For instance, combinations of distances, angles, or
+latent variables from dimensionality-reduction algorithms can be
+effective CVs by allowing for a clear distinction between metastable
+states (Tribello et al. 2014), while losing a direct physical
+interpretability (see an extended discussion in section
+[sec:MLCVs](#sec:MLCVs)). OPs are a specific type of CV introduced in
+statistical mechanics to distinguish between different thermodynamic
+phases or states of matter (Neha et al. 2022; Desgranges and Delhommelle
+2025; Giberti, Salvalaglio, and Parrinello 2015). OPs typically reflect
+a symmetry-breaking or structural feature that changes qualitatively at
+a phase transition---for example, density in liquid--gas coexistence,
+orientational alignment in liquid crystals, and roto-translational
+invariance in crystalline systems (Steinhardt, Nelson, and Ronchetti
+1983; Tribello et al. 2017; Gimondi and Salvalaglio 2017; Piaggi and
+Parrinello 2019). Although OPs are often used to obtain a global
+description of an atomistic system, they are typically constructed from
+local contributions within well-defined atomic environments (Lechner and
+Dellago 2008; Bartók, Kondor, and Csányi 2013; Piaggi and Parrinello
+2017; Giberti, Salvalaglio, and Parrinello 2015; Caruso et al. 2025).
+When dealing with characterising the state of molecular solids, OPs
+based on measures of similarity between distributions capturing the
+translational, orientational, and conformational order are particularly
+effective (Gobbo et al. 2018; Gimondi and Salvalaglio 2018; Francia et
+al. 2020)
+
+(reaction-coordinates)=
+### Reaction Coordinates
+
+An RC implies a further specialization: it is a low-dimensional
+descriptor intended to capture the progress of *the* most probable
+transition pathway between reactants and products. An ideal RC is not
+only correlated with the transition but also uniquely parameterizes the
+progress of the reaction and identifies the transition state
+ensemble(Vanden-Eijnden 2006; Peters and Trout 2006; Peters 2017). An
+important point to note is that, when (a combination of) CVs provide a
+good approximation of the RC for a given physical transformation, saddle
+points in $F(\xi)$ correspond to the projection of the transition state
+ensemble of configurations associated with that transformation. For
+configurations belonging to the transition state ensemble, the
+probability of completing the crossing of the saddle point and
+*committing* to the products (see Sec. [sec:committor](#sec:committor))
+is narrowly distributed around $\frac{1}{2}$.
+
+(sec:committor)=
+### The Committor Function
+
+The committor function $p_B(\mathbf{r})$ ---also known as splitting
+probability, originally introduced by Onsager (Onsager 1938)--- provides
+the most rigorous definition of a reaction coordinate for a system
+evolving from state A to state B. It is the probability that a
+trajectory starting from configuration $\mathbf{r}$, with momenta drawn
+from equilibrium, reaches B before returning to A. By definition,
+$p_A(\mathbf{r}) + p_B(\mathbf{r}) = 1$, and the transition state
+ensemble corresponds to the isosurface $p_B = 1/2$. Iso-committor
+surfaces partition configuration space into metastable basins, giving a
+unique dynamical measure of progress along the reaction. Unlike
+heuristic collective variables, the committor fully determines kinetic
+observables such as rate constants and reactive fluxes (Vanden-Eijnden
+2006). Although computing it exactly is infeasible for high-dimensional
+systems, it remains a key reference: an ideal reaction coordinate
+correlates monotonically with $p_B(\mathbf{r})$ and minimizes its
+variance within isosurfaces. Thus, the committor defines the optimal
+projection of dynamics---any reduced representation that preserves its
+distribution across the transition ensemble retains complete kinetic
+information (Phillip L. Geissler, Dellago, and Chandler 1999a), a
+concept central to both path sampling (Bolhuis et al. 2002; Van Erp and
+Bolhuis 2005) and modern data-driven approaches.
+
+
+(free-energy-barriers-and-generalised-transition-state-theory)=
+## Free Energy Barriers and Generalised Transition State Theory
+
+Once a suitable RC $\xi(\mathbf{r})$ is defined, the free energy surface
+$F(\xi) = -kT \ln p(\xi)$ quantifies the reversible work required to
+bring the system to a configuration of progress $\xi$. Minima of
+$F(\xi)$ identify metastable states (reactants, products), while the
+maximum along the minimum free-energy path defines the transition state
+at $\xi^\ddagger$. The corresponding free energy difference
+$$\Delta F_\xi^{\ddagger} = F(\xi^\ddagger) - F(\xi_\mathrm{R})$$
+represents the free energy barrier that the system must overcome to
+transform from reactants to products, thus opening the door to a kinetic
+interpretation of the free energy surface. The *generalised
+transition-state theory* (TST) links thermodynamics and kinetics by
+expressing the rate constant as the thermal average of the flux through
+a dividing surface in configuration space: 
+
+$$
+k_{\mathrm{TST}} =
+\underbrace{\frac{1}{2}\langle|\dot{\xi}|\rangle_{\xi^\ddagger}}_{\text{kinetic prefactor}}
+\underbrace{\exp[-\beta{\Delta F_\xi^{\ddagger}}]}_{\text{Boltzmann factor}} 
+\label{eq:TSTPeters}
+$$ 
+
+The prefactor represents the average crossing
+velocity, while the Boltzmann factor gives the equilibrium probability
+of reaching the transition state. This form follows from the
+flux--over--population formalism of Hänggi, Talkner, and
+Borkovec(Hänggi, Talkner, and Borkovec 1990), where the rate of barrier
+crossing is the ratio of the reactive flux $J$ to the reactant
+population $n_\mathrm{R}$,
+$$k = \frac{J}{n_\mathrm{R}} = \frac{\int \dot{\xi}  \delta(\xi-\xi^\ddagger)  \Theta(\dot{\xi})  e^{-\beta H(\mathbf{r},\mathbf{p})}   d\mathbf{r} d\mathbf{p}}{\int_{\xi < \xi^\ddagger} e^{-\beta H(\mathbf{r},\mathbf{p})}   d\mathbf{r} d\mathbf{p}}.
+\label{eq:TSTHanggi}$$ Here $\delta(\xi-\xi^\ddagger)$ selects
+configurations on the dividing surface, $\Theta(\dot{\xi})$ retains
+forward crossings, and $e^{-\beta H}$ is the Boltzmann weight. Assuming
+equilibration of degrees of freedom orthogonal to $\xi$,
+Eq. [eq:TSTHanggi](#eq:TSTHanggi) reduces to
+Eq. [eq:TSTPeters](#eq:TSTPeters), linking the rate constant directly to
+the free-energy profile $F(\xi)$ obtainable with the methods discussed
+in Sec. [sec:Computing](#sec:Computing). The exponential term is
+obtained from the simulation, while the prefactor follows from the mean
+thermal velocity along $\xi$. The TST formula does not consider barrier
+recrossing; these are fully included in approaches like the
+Bennett-Chandler reactive flux(Bennett, n.d.; Chandler 1978)
+$$k_{BC}(t) = \frac{\langle \dot{\xi}(0)  \delta[\xi(0)-\xi^\ddagger]  h_B[\xi(t)]\rangle}
+{\langle h_A \rangle},$$ where $h_A$ and $h_B$ are characteristic
+functions identifying reactants and products, and the rate $k$ is
+obtained from the plateau value of $k_{BC}(t)$. This formula and its
+successive improvements(Ruiz-Montero, Frenkel, and Brey 1997) require an
+accurate sampling of the transition state and are limited by the
+necessity to locate it and the assumption of its uniqueness. Where this
+is not true (Vanden-Eijnden 2006; Vanden-Eijnden et al. 2010), the
+bundle of transition paths must be sampled, as discussed in Section
+[sec:tps](#sec:tps).
+
