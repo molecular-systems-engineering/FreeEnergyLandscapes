@@ -38,9 +38,9 @@ jobs:
           jupyter-book build .
 
       # Avoid Jekyll processing (recommended for static HTML with "_" folders)
-      - name: Disable Jekyll
-        run: |
-          touch _build/html/.nojekyll
+      #- name: Disable Jekyll
+      #  run: |
+      #    touch _build/html/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
