@@ -177,8 +177,7 @@ $\xi(\mathbf{r})$. In this context, $p(\xi)$ can be interpreted as the
 (normalized) partition function associated with all the microstates
 mapped in $\xi$. In the following, to favor readability, we indicate
 $\xi$ as a scalar; however, its dimensionality can be higher than one,
-and extensions to higher dimensionality are straightforward(Laio and
-Parrinello 2002; Kästner 2011).
+and extensions to higher dimensionality are straightforward [@laio2002escaping; @Kaestner2011].
 
 In analogy with Eq.[eq:FE](#eq:FE) we can define a free energy for every
 $\xi$ as: $$F(\xi)=-kT\ln{p(\xi)}+C
@@ -225,7 +224,7 @@ than energetic, contributions [@gimondi2018building, polino2020collective, @koll
 
 **Entropy and Energy surfaces in $\xi$** 
 **A.** Two-dimensional model potential energy surface, $U(x,y)$, and corresponding projection on the map variable (x) used to illustrate the decomposition of the free energy surface into energetic and entropic contributions, following
-Ref. (Gimondi, Tribello, and Salvalaglio 2018). The potential energy
+Ref. [@gimondi2018building]. The potential energy
 landscape features two basins of comparable depth (A and B) but markedly
 different widths along the coordinate $y$. **B.** One-dimensional
 profiles of the free energy $\Delta F(x)$ (blue), average potential
@@ -321,9 +320,7 @@ a phase transition---for example, density in liquid--gas coexistence,
 orientational alignment in liquid crystals, and roto-translational
 invariance in crystalline systems [@Steinhardt1983; @Tribello2017; @Gimondi_2017; @piaggi2017entropy]. Although OPs are often used to obtain a global
 description of an atomistic system, they are typically constructed from
-local contributions within well-defined atomic environments (Lechner and
-Dellago 2008; Bartók, Kondor, and Csányi 2013; Piaggi and Parrinello
-2017; Giberti, Salvalaglio, and Parrinello 2015; Caruso et al. 2025).
+local contributions within well-defined atomic environments [@lechner2008accurate; @bartok2013representing; @piaggi2017entropy; @Giberti2015; @caruso2025classification].
 When dealing with characterising the state of molecular solids, OPs
 based on measures of similarity between distributions capturing the
 translational, orientational, and conformational order are particularly
@@ -359,8 +356,7 @@ ensemble corresponds to the isosurface $p_B = 1/2$. Iso-committor
 surfaces partition configuration space into metastable basins, giving a
 unique dynamical measure of progress along the reaction. Unlike
 heuristic collective variables, the committor fully determines kinetic
-observables such as rate constants and reactive fluxes (Vanden-Eijnden
-2006). Although computing it exactly is infeasible for high-dimensional
+observables such as rate constants and reactive fluxes [@vanden2006transition]. Although computing it exactly is infeasible for high-dimensional
 systems, it remains a key reference: an ideal reaction coordinate
 correlates monotonically with $p_B(\mathbf{r})$ and minimizes its
 variance within isosurfaces. Thus, the committor defines the optimal
