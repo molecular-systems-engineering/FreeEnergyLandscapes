@@ -25,12 +25,10 @@ learning approaches that are transforming the sampling, representation
 and analysis of molecular systems.
 +++
 
-### Table of Contents
-```{toc}
-:depth: 3
-```
-
 +++ { "part": "acknowledgements" }
 MSa gratefully acknowledges the HT-MATTER UKRI Frontier Research Guarantee Grant (EP/X033139/1) for funding, and all the members of the Molecular Modelling and Engineering group who offered feedback on earlier versions of this manuscript, in particular Aaron Finney, Matteo Paloni, and Florian M. Dietrich. 
 +++
 
+:::{warning} Disclosure Statement
+The authors are not aware of any affiliations, memberships, funding, or financial holdings that might be perceived as affecting the objectivity of this review. Large language models (LLMs) were used to assist in refining the text for clarity, consistency, and readability. All scientific content, analysis, interpretations, and editorial choices are the authors’ own, and all AI-assisted text was critically reviewed and edited by the authors before inclusion.
+:::
