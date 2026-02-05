@@ -25,6 +25,14 @@ learning approaches that are transforming the sampling, representation
 and analysis of molecular systems.
 +++
 
+:::{note} 
+This is the *live*, *open source* version of the review paper **"Molecular Understanding of Free Energy Landscapes"** accepted for publication in the *Annual Reviews of Chemical and Biochemical Engineering*, **2026**, https://doi.org/tbd/tbc. If you find the content of these pages useful, please cite the work as: 
+
+```Marcello Sega and Matteo Salvalaglio, "Molecular Understanding of Free Energy Landscapes" Annual Review of Chemical and Biomolecular Engineering 17 (2026).```
+
+
+:::
+
 +++ { "part": "acknowledgements" }
 MSa gratefully acknowledges the HT-MATTER UKRI Frontier Research Guarantee Grant (EP/X033139/1) for funding, and all the members of the Molecular Modelling and Engineering group who offered feedback on earlier versions of this manuscript, in particular Aaron Finney, Matteo Paloni, and Florian M. Dietrich. 
 +++
